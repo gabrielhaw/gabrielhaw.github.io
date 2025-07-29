@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth">
+<head>
+  <!--linking the ouput file and basic setup-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../src/output.css" rel="stylesheet">
+</head>
+
+  <!--background and splitting page into 2 halves (bg-gradient-to-tr to-gray-950 from-gray-300)-->
+  <body class="flex flex-col font-mono min-h-scree p-10 bg-black">
+    <nav class="absolute top-5 right-10 space-x-6 z-50 font-bold" >
+            <a href="#about" class="text-lg text-gray-300 hover:text-blue-50">About Me</a>
+            <a href="#projects" class="text-lg text-gray-300 hover:text-blue-50">Academic Projects</a>
+            <a href="#blog" class="text-lg text-gray-300 hover:text-blue-50">Blog</a>
+            <a href="#blog" class="text-lg text-gray-300 hover:text-blue-50">Contact Me</a>
+    </nav>
+
+
+    <section class="min-h-screen flex items-center bg-black">
+      <div class="grid grid-cols-2 w-full">
+        
+        <!-- left section -->
+        <div class="flex flex-col items-center p-8">
+
+          <!-- animated intro -->
+          <header class="italic absolute top-10 left-20 z-10 text-5xl text-gray-300 font-bold whitespace-nowrap typing-line">
+            Hello World,<br>
+            <span class="block mt-1 typing-line-2 pl-15">I am Gabriel</span>
+          </header>
+
+          <!-- me! -->
+          <img class="w-84 h-auto mt-24 object-contain" src="../images/IMG_1580.png"/>
+          <div class="items-center flex space-x-3">
+            <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer">
+              <img class="w-8 mt-3" src="../images/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
+            </a>
+            <a href="https://www.linkedin.com/in/gabriel-haw-131477325" target="_blank" rel="noopener noreferrer">
+              <img class="w-8 mt-3" src="../images/LinkedIn_icon.svg.png" alt="LinkedIn" />
+            </a>
+          </div>
+          
+
+          <!-- short description-->
+          <p class="pt-10 text-justify leading-relaxed text-gray-300">
+            I'm Gabriel Haw — a data-driven thinker with a background in Bioinformatics, recently graduated with a Master’s degree from the University of Amsterdam.
+          </p>
+
+          <div class="pt-3"></div>
+
+          <!-- a'dam image -->
+          <div class="relative w-full h-screen rounded-2xl overflow-hidden">
+            <p class="absolute bottom-20 left-4 text-gray-300 text-sm bg-black/60 px-2 py-1 rounded">
+              Reguliersgracht, Amsterdam, 1017
+            </p>
+            <img src="../images/B9F5EBC2-54E1-4FAA-9E92-DB98FB495C1A_1_105_c.jpeg"
+                class="w-full h-full object-cover rounded-2xl" />
+          </div>
+
+          <!-- projects section -->
+          <section id="projects" class="w-full">
+            <h2 class="text-3xl text-gray-300 text-center">Academic Projects</h2>
+            <p class="text-justify leading-relaxed text-gray-300 pt-5">
+              These are the academic projects I have worked on over the course of my studies:
+            </p>
+
+            <ul class="list-[‣] text-gray-300 pl-5 space-y-10 pt-10">
+
+              <!-- bachelors project -->
+              <li class="list-none">
+                <p class="font-semibold mb-2">
+                  &#8227; Exploring the microbiome of large carnivores and related evolutionary trajectories (Bachelor's thesis).
+                </p>
+                <div class="relative group">
+                  <img src="../images/Image 2025-07-29 at 15.06.jpg"
+                      class="w-full rounded-2xl transition group-hover:opacity-40" />
+                  <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0
+                              opacity-0 group-hover:opacity-100
+                              bg-white/90 text-black text-sm px-6 py-3
+                              transition duration-300 rounded-2xl">
+                    <p class="font-bold">
+                      Bioinformatic and Biostatistical Analysis of Ancient Microbiomes @ University of Bologna, Italy
+                    </p>
+                    <p class="text-justify mt-1">
+                      Bachelor's thesis: This project explored the evolutionary relationships between carnivorous mammals and their gut microbiomes. 
+                      By comparing modern species with an extinct subspecies of hyena, it identified microbial genera—such as Lachnoclostridium, Clostridium, and 
+                      Peptoclostridium—that have been preserved over time. These microbes, linked to meat digestion and gut health, support the idea that certain 
+                      gut bacteria have co-evolved with their hosts and play important roles in carnivore biology.
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <!-- project methylation -->
+              <li class="list-none">
+                <p class="font-semibold mb-2">
+                  &#8227; Machine learning for biological age prediction 
+                </p>
+                <div class="relative group">
+                  <img src="../images/Image 2025-07-29 at 17.42.jpg"
+                      class="w-full rounded-2xl transition group-hover:opacity-40" />
+                  <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0
+                              opacity-0 group-hover:opacity-100
+                              bg-white/90 text-black text-sm px-6 py-3
+                              transition duration-300 rounded-2xl">
+                    <p class="font-bold">
+                      Age prediction using mammalian methylation profiles @ University of Amsterdam, Netherlands
+                    </p>
+                    <p class="text-justify mt-1">
+                      This project applied machine learning techniques—including linear regression, decision trees, 
+                      and deep learning—to develop a pan-tissue epigenetic clock using DNA methylation data from over 
+                      11,000 mammals. The results showed that sparse linear models performed best for age prediction, 
+                      identified key genes associated with aging, and revealed that some species aged significantly more 
+                      slowly than others.
+                  </div>
+                </div>
+              </li>
+
+              <!-- masters project -->
+              <li class="list-none">
+                <p class="font-semibold mb-2">
+                  &#8227; Mapping Cortical Connectivity Profiles Across the Human Brain (Master's thesis)
+                </p>
+                <div class="relative group">
+                  <img src="../images/Image 2025-07-28 at 19.15.jpg"
+                      class="w-full rounded-2xl transition group-hover:opacity-40" />
+                  <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0
+                              opacity-0 group-hover:opacity-100
+                              bg-white/90 text-black text-sm px-6 py-3
+                              transition duration-300 rounded-2xl">
+                    <p class="font-bold">
+                      Mapping Region-to-Region Connectivity Across the Brain @ University of Amsterdam & Center for Neurogenomics and Cognitive Research (CNCR)
+                    </p>
+                    <p class="text-justify mt-1 text-sm">
+                      Master's thesis: This project studied how the human cortex is organised by analyzing brain connectivity patterns. 
+                      Using variogram-based methods, it found that sensory areas have strong, short-range connections, 
+                      while higher-order areas have weaker, long-range ones. Some key regions, like the posterior cingulate 
+                      and medial prefrontal cortex, showed both. The results support the idea that brain organisation is 
+                      shaped by both connectivity and spatial layout.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <!-- right section -->
+        <div class="p-8">
+          <div class="relative w-full h-screen rounded-2xl overflow-hidden">
+            <p class="absolute top-3 left-3 text-gray-300 text-sm bg-black/60 px-2 py-1 rounded z-10">
+              Via Peschiere Vecchi, Bologna, 40124
+            </p>
+            <img src="../images/8ae01fc6-82e4-485d-ba41-a2c690807bae.JPG"
+                class="w-full h-full object-cover rounded-2xl" />
+          </div>
+
+          <section id="about" class="pt-10">
+            <h2 class="text-3xl text-gray-300 text-center">About Me</h2>
+            <p class="text-justify leading-relaxed text-gray-300 pt-5">
+              I'm Gabriel Haw — a data-driven thinker with a background in Bioinformatics, recently graduated with a Master’s degree from the University of Amsterdam.
+              My academic and professional journey has been defined by a deep curiosity about complex systems and a drive to extract actionable insights from data.
+              With strong foundations in Python, R, SQL, and a growing toolkit of machine learning and data visualization skills, I bridge the gap between scientific
+              research and data-driven decision-making. My work spans areas like genomic data analysis, brain connectivity modeling, and spatial mapping of ecological
+              systems. From identifying key predictors of bat box occupancy in South Africa, to modeling DNA methylation patterns for lifespan prediction, I’ve applied
+              data science techniques to both real-world and research problems. My goal is to continue solving meaningful problems at the intersection of data, biology,
+              and technology — whether in the lab, industry, or environment.
+            </p>
+
+            <div class="pt-10">
+              <img src="../images/c0fda10f-eddc-40a2-aa73-b0876ba4004c.jpg"
+                  class="w-full h-full object-contain rounded-2xl" />
+            </div>
+
+            <!-- contact me -->
+            <section id="projects" class="w-full">
+              <h2 class="text-3xl text-gray-300 text-center">Contact Me</h2>
+              <p class=" text-gray-300"> Email me:</p> <a class="text-gray-300" href="mailto:webmaster@example.com">Gabriel Haw</a> 
+            </section>
+
+          </section>
+        </div>
+      </div>
+    </section>
+
+  </body>
+</html>
+
