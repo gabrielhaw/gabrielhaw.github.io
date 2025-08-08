@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@source "../node_modules/preline/dist/*.js";
+@import "../node_modules/preline/variants.css";
+
+/* Plugins */
+@plugin "@tailwindcss/forms";
 
 /* The typing effect */
 @keyframes typing {
@@ -23,7 +28,7 @@
     blink-caret .75s step-end infinite;
 }
 
-.typing-line-2 {
+.typing-line-2{
   overflow: hidden;
   white-space: nowrap;
   animation: typing 2s steps(20, end) 2.2s, blink-caret 0.75s step-end infinite 2.2s;
@@ -32,10 +37,4 @@
   animation-fill-mode: forwards;
 }
 
-.imaggeB{
-  border-image: linear-gradient(to left, #743ad5 0%, #d53a9d 100%);
-  border-image-slice: 1;
-  border-width: 2px;
-  border-style: solid;
-   border-radius: 1rem;
-}
+
