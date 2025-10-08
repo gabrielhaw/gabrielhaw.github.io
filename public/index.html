@@ -1,233 +1,238 @@
 <!DOCTYPE html>
-
 <html class="scroll-smooth">
 <head>
-  <!--linking the ouput file and basic setup-->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind config MUST be declared before the CDN script -->
+  <script>
+    tailwind = {
+      config: {
+        darkMode: 'class'
+      }
+    }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Keep this ONLY if you have custom compiled styles you need (otherwise remove) -->
   <link href="../src/output.css" rel="stylesheet">
+
+  <title>Two Column Grid</title>
 </head>
 
-  <!--background and splitting page into 2 halves (bg-gradient-to-tr to-gray-950 from-gray-300)-->
-  <!-- <body class="flex flex-col font-mono min-h-scree p-10 bg-black"> -->
-  <body class="relative flex flex-col font-mono min-h-screen p-10 bg-black overflow-x-hidden">
-  <!-- background gradient div that covers full scroll height -->
-  <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_1500px_at_50%_10%,rgba(0,0,0,0.85),rgba(158,158,158,0.3),rgba(255,255,255,0))]"></div>
+<body class="relative flex flex-col font-mono min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
+  <!-- background layer -->
+  <div class="fixed inset-0 -z-10 bg-white dark:bg-gray-900"></div>
 
-    <!-- top napvigation -->
-    <nav class="absolute top-5 right-10 space-x-6 z-50 font-bold" >
-            <a href="#about" class="text-lg text-white hover:text-blue-50">About Me</a>
-            <a href="#projects" class="text-lg text-white hover:text-blue-50">Academic Projects</a>
-            <a href="#blog" class="text-lg text-white hover:text-blue-50">Blog</a>
-    </nav>
+  <!-- Top navigation with dark-mode toggle -->
+  <nav class="absolute top-5 right-10 space-x-6 z-50 font-bold">
+    <a href="#education" class="text-lg text-black dark:text-white hover:text-blue-500">Education</a>
+    <a href="#projects" class="text-lg text-black dark:text-white hover:text-blue-500">Academic Projects</a>
+    <a href="#blog" class="text-lg text-black dark:text-white hover:text-blue-500">Blog</a>
+  </nav>
 
+  <section class="min-h-screen flex items-center">
+    <!-- EXACTLY TWO COLUMNS with a 35% / 65% split -->
+    <div class="grid grid-cols-1 md:grid-cols-[35%_65%] gap-8 w-full">
 
-    <section class="min-h-screen flex items-center ">
-      <div class="grid grid-cols-2 w-full">
-        
-        <!-- left section -->
-        <div class="flex flex-col items-center p-8">
+      <!-- LEFT -->
+      <div class="relative flex flex-col items-center p-8 bg-gray-50 dark:bg-gray-800">
+        <!-- headline -->
+        <header class="italic absolute top-2 left-[1.5rem] z-10 text-3xl font-bold whitespace-nowrap typing-line">
+          Hello World,<br />
+          <span class="block mt-1 pl-[60px] typing-line-2">I am Gabriel</span>
+        </header>
 
-          <!-- animated intro -->
-          <header class="italic absolute top-10 left-20 z-10 text-5xl text-white font-bold whitespace-nowrap typing-line">
-            Hello World,<br>
-            <span class="block mt-1 typing-line-2 pl-15">I am Gabriel</span>
-          </header>
+        <!-- me! -->
+        <img class="w-[21rem] h-auto mt-24 object-contain" src="../images/IMG_1580.png" alt="Gabriel" />
+        <p class="text-sm text-gray-600 dark:text-gray-300 pt-2">Bioinformatics &amp; Systems Biology Graduate</p>
 
-          <!-- me! -->
-          <img class="w-84 h-auto mt-24 object-contain" src="../images/IMG_1580.png"/>
-          <div class="items-center flex space-x-3">
-
-            <a href="mailto:gabrielvascohaw@gmail.com" target="_blank" rel="noopener noreferrer">
-              <img class="w-12 mt-3" src="../images/gmail.webp" alt="LinkedIn" />
-            </a>
-
-            <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer">
-              <img class="w-9 mt-3 rounded" src="../images/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
-            </a>
-
-            <a href="https://www.linkedin.com/in/gabriel-haw-131477325" target="_blank" rel="noopener noreferrer">
-              <img class="w-9 mt-3" src="../images/LinkedIn_icon.svg.png" alt="LinkedIn" />
-            </a>
-
-          </div>
-          
-          <!-- short description-->
-          <p class="pt-10 text-justify leading-relaxed text-white text-sm">
-            I'm a data-driven thinker with a background in Bioinformatics, recently graduated with a Master’s degree from the University of Amsterdam.
-            I built this little portfolio site in my free time to learn some web dev and will continue to work on it as I go along. All the code can be found on my github.
-          </p>
-
-          <div class="pt-3"></div>
-
-          <!-- a'dam image -->
-            <div class="relative w-full h-screen rounded-2xl overflow-hidden">
-              <img src="../images/B9F5EBC2-54E1-4FAA-9E92-DB98FB495C1A_1_105_c.jpeg"
-                  class="w-full h-full object-cover rounded-2xl" />
-
-              <p class="absolute bottom-4 left-3 text-white text-sm bg-black/60 px-2 py-1 rounded">
-                Reguliersgracht, Amsterdam, 1017
-              </p>
-            </div>
-
-        
-        <!-- carousel  -->
-           <!-- slider for projects -->
-              <h2  id="projects" class="text-3xl text-white text-center mt-5"> Academic projects</h2>
-              <p class="text-justify leading-relaxed text-white pt-5 text-sm">
-               These are a selection of academic projects I’ve completed during my studies. My work has primarily focused on mammalian biology; ranging from analyzing bacteria associated with carnivores to predicting mammalian age using DNA methylation profiles.
-              </p>
-                  <div class="w-155">
-                    <div data-hs-carousel='{
-                        "loadingClasses": "opacity-0",
-                        "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500"
-                      }' class="relative">
-                      
-                      <div class="hs-carousel relative overflow-hidden w-full rounded-lg">
-                        <div class="hs-carousel-body flex flex-nowrap transition-transform duration-700 opacity-0">
-
-                          <!-- first slide -->
-                            <div class="hs-carousel-slide">
-                            <div class="flex justify-center h-full p-6">
-                              <span class="text-white text-lg transition duration-700 dark:text-white"> 
-                                <div class="relative group">
-                                  <img src="../images/Image 2025-07-29 at 15.06.jpg"
-                                      class="w-full h-85 rounded-2xl transition group-hover:opacity-40" />
-                                  <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0
-                                              opacity-0 group-hover:opacity-100
-                                              bg-white/90 text-black text-sm px-6 py-3
-                                              transition duration-300 rounded-2xl">
-                                    <p class="font-bold">
-                                      Bioinformatic and Biostatistical Analysis of Ancient Microbiomes @ University of Bologna, Italy
-                                    </p>
-                                    <p class="text-justify mt-1">
-                                      Bachelor's thesis: This project explored the evolutionary relationships between carnivorous mammals and their gut microbiomes. 
-                                      By comparing modern species with an extinct subspecies of hyena, it identified microbial genera—such as Lachnoclostridium, Clostridium, and 
-                                      Peptoclostridium—that have been preserved over time. These microbes, linked to meat digestion and gut health, support the idea that certain 
-                                      gut bacteria have co-evolved with their hosts and play important roles in carnivore biology.
-                                    </p>
-                                  </div>
-                                </div>
-                              </span>
-                            </div>
-                          </div>
-
-                          <!-- second slide -->
-                          <div class="hs-carousel-slide">
-                            <div class="flex justify-center h-full p-6">
-                              <span class="text-white text-lg transition duration-700 dark:text-white"> 
-                                <div class="relative group">
-                                  <img src="../images/Image 2025-07-29 at 17.42.jpg"
-                                      class="w-full h-85 rounded-2xl transition group-hover:opacity-40" />
-                                  <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0
-                                              opacity-0 group-hover:opacity-100
-                                              bg-white/90 text-black text-sm px-6 py-3
-                                              transition duration-300 rounded-2xl">
-                                    <p class="font-bold">
-                                      Age prediction using mammalian methylation profiles @ University of Amsterdam, Netherlands
-                                    </p>
-                                    <p class="text-justify mt-1">
-                                      This project applied machine learning techniques—including linear regression, decision trees, 
-                                      and deep learning—to develop a pan-tissue epigenetic clock using DNA methylation data from over 
-                                      11,000 mammals. The results showed that sparse linear models performed best for age prediction, 
-                                      identified key genes associated with aging, and revealed that some species aged significantly more 
-                                      slowly than others.
-                                  </div>
-                                </div>
-                              </span>
-                            </div>
-                          </div>
-
-                          <!-- third slide -->
-                          <div class="hs-carousel-slide">
-                            <div class="flex justify-center h-full p-6">
-                              <span class="text-white text-lg transition duration-700 dark:text-white"> 
-                                    <div class="relative group">
-                                      <img src="../images/Image 2025-07-28 at 19.15.jpg"
-                                          class="w-full h-85 rounded-2xl transition group-hover:opacity-40" />
-                                      <div class="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0
-                                                  opacity-0 group-hover:opacity-100
-                                                  bg-white/90 text-black text-sm px-6 py-3
-                                                  transition duration-300 rounded-2xl">
-                                        <p class="font-bold">
-                                          Mapping Region-to-Region Connectivity Across the Brain @ University of Amsterdam & Center for Neurogenomics and Cognitive Research (CNCR)
-                                        </p>
-                                        <p class="text-justify mt-1 text-sm">
-                                          Master's thesis: This project studied how the human cortex is organised by analyzing brain connectivity patterns. 
-                                          Using variogram-based methods, it found that sensory areas have strong, short-range connections, 
-                                          while higher-order areas have weaker, long-range ones. Some key regions, like the posterior cingulate 
-                                          and medial prefrontal cortex, showed both. The results support the idea that brain organisation is 
-                                          shaped by both connectivity and spatial layout.
-                                        </p>
-                                      </div>
-                                    </div>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                        <button type="button" 
-                          class="hs-carousel-prev absolute inset-y-0 start-0 inline-flex justify-start items-center w-11.5 h-full 
-                                text-white hover:bg-transparent focus:outline-none rounded-s-lg"
-                          aria-label="Previous">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
-                            <path d="m15 18-6-6 6-6"></path>
-                          </svg>
-                        </button>
-
-                        <button type="button" 
-                          class="hs-carousel-next absolute inset-y-0 end-0 inline-flex justify-end items-center w-11.5 h-full 
-                                text-white hover:bg-transparent focus:outline-none rounded-e-lg"
-                          aria-label="Next">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5">
-                            <path d="m9 18 6-6-6-6"></path>
-                          </svg>
-                        </button>
-
-
-                      <div class="hs-carousel-pagination flex justify-center absolute bottom-3 start-0 end-0 space-x-2"></div>
-                    </div>
-                  </div>
-                  <p class="text-white text-sm"> These photos were taken throughout my studies by both myself and my friends. I’ll be updating this gallery as I continue to add more!</p>
+        <!-- links and logos -->
+        <div class="flex items-center pt-2">
+          <a href="mailto:gabrielvascohaw@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Gabriel" class="inline-flex items-center justify-center px-1.5">
+            <img class="h-11 w-auto block" src="../images/gmail.webp" alt="Gmail" />
+          </a>
+          <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex items-center justify-center px-1.5">
+            <img class="h-11 w-auto block rounded" src="../images/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
+          </a>
+          <a href="https://www.linkedin.com/in/gabriel-haw-131477325" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex items-center justify-center px-1.5">
+            <img class="h-10 w-auto block" src="../images/LinkedIn_icon.svg.png" alt="LinkedIn" />
+          </a>
         </div>
+        <!-- end links and logos -->
 
+        <p class="text-gray-600 dark:text-gray-300 text-sm self-start pt-5">about</p>
+        <p class="pt-3 text-justify leading-relaxed text-xs text-gray-800 dark:text-gray-200">
+          I'm a data-driven thinker with a background in Bioinformatics, recently graduated with a Master’s degree from the University of Amsterdam.
+          I built this little portfolio site in my free time to learn some web dev and will continue to work on it as I go along. All the code can be found on my github.
+        </p>
 
-        <!-- right section -->
-        <div class="p-8">
-          <div class="relative w-full h-screen rounded-2xl overflow-hidden">
-            <p class="absolute top-3 left-3 text-white text-sm bg-black/60 px-2 py-1 rounded z-10">
-              Via Peschiere Vecchi, Bologna, 40124
-            </p>
-            <img src="../images/8ae01fc6-82e4-485d-ba41-a2c690807bae.JPG"
-                class="w-full h-full object-cover rounded-2xl" />
-          </div>
-
-          <section id="about" class="pt-10">
-            <h2 class="text-3xl text-white text-center">About Me</h2>
-            <p class="text-justify leading-relaxed text-white pt-5 text-sm">
-              I grew up in South Africa and spent the last few years studying abroad in Italy and the Netherlands.
-              My background is in bioinformatics, but I generally think of myself as a data scientist with an interest in biology. Over time, I’ve found myself really enjoying the intersection of machine learning and big data, especially when it helps uncover useful patterns or insights.
-              My projects have touched on things like genomic data analysis, brain connectivity, and mapping ecological systems. I've worked on everything from figuring out what influences bat box occupancy in South Africa to using DNA methylation data to explore lifespan prediction.
-              I'm curious about how data can help us understand biological systems better, whether that's in research, industry, or environmental work, and I'm always up for digging into a new challenge.
-            </p>
-
-            <div class="relative pt-10">
-              <img src="../images/c0fda10f-eddc-40a2-aa73-b0876ba4004c.jpg"
-                  class="w-full h-full object-contain rounded-2xl" />
-
-              <p class="absolute top-13 right-3 text-white text-sm bg-black/60 px-2 py-1 rounded">
-                Piazza della Mercanzia, Bologna, 40124
-              </p>
-            </div>
-            
-          </section>
+        <p class="pt-6 self-start text-sm text-gray-600 dark:text-gray-300 mb-4">skills</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Python</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">R</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">SQL</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Machine Learning</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Data Analysis</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Feature Engineering</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Model Evaluation</span>
         </div>
       </div>
-    </section>
-   
-    <script src="../node_modules/preline/dist/preline.js"></script>
 
-  </body>
+      <!-- RIGHT -->
+      <div class="p-3">
+        <!-- education  -->
+        <h2 id="education" class="self-start pt-10 text-gray-600 dark:text-gray-300">Education</h2>
+        <div class="flex flex-wrap justify-start gap-6">
+          <div class="max-w-[90%]">
+            <p class="text-xs font-bold pt-2">BSc in Genomics — University of Bologna, Italy (2019–2023)</p>
+            <p class="text-xs text-justify mt-1 text-gray-800 dark:text-gray-200">
+              Developed a strong foundation in bioinformatics, molecular biology, and statistical data analysis, focusing on the integration of genomic and multi-omic datasets. 
+              Gained expierence on computational tools, data focused research, and interdisciplinary collaboration through practical coursework and an international academic environment. 
+            </p>
+
+            <p class="text-xs font-bold mb-1 pt-4">MSc in Bioinformatics and Systems Biology — University of Amsterdam &amp; Vrije Universiteit Amsterdam, Netherlands (2023–2025)</p>
+            <p class="text-xs text-justify text-gray-800 dark:text-gray-200">
+              Learnt bioinformatic and sys bio principles, whilst gaining experience in sequence analysis, protein structure prediction, and modeling of biological networks. Used ML and deep learning frameworks to 
+              explore relevant features for predicting outcomes. Did my MSc research internship at the Center for Neurogenomics and Cognitive Research (CNCR).
+            </p>
+          </div>
+        </div>
+
+        <!-- PROJECTS -->
+        <h2 id="projects" class="self-start pt-10 text-gray-600 dark:text-gray-300">Academic projects</h2>
+        <div class="flex flex-wrap justify-start gap-6">
+
+          <!-- CARD 1 -->
+          <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
+            <a href="#">
+              <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-29 at 15.06.jpg" alt="Ancient Microbiomes" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
+                  Bioinformatic and Biostatistical Analysis of Ancient Microbiomes @ University of Bologna, Italy
+                </h5>
+              </a>
+              
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">R</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">PhyloFlash</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">FastTree</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Phyloseq</span>
+              </div>
+
+              <p class="mb-3 mt-2 text-xs text-gray-700 dark:text-gray-300 text-justify">
+                Bachelor's thesis: This project explored the evolutionary relationships between carnivorous mammals and their gut microbiomes. 
+                By comparing modern species with an extinct subspecies of hyena, it identified microbial genera—such as Lachnoclostridium, Clostridium, and Peptoclostridium—that have been preserved over time. 
+                These microbes, linked to meat digestion and gut health, support the idea that certain gut bacteria have co-evolved with their hosts and play key roles in carnivore biology.
+              </p>
+              <a href="#"
+                 class="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg
+                        hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
+                        dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
+            <a href="#">
+              <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-29 at 17.42.jpg" alt="Mammalian methylation age prediction" />
+            </a>
+            <div class="p-5">
+              <a href="#">
+                <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
+                  Age prediction using mammalian methylation profiles @ University of Amsterdam, Netherlands
+                </h5>
+              </a>
+              
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Machine Learning</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Scikit-learn</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Keras</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Optuna</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Regression</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Elastic Net</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">LightGBM</span>
+              </div>
+
+              <p class="mb-3 pt-2 text-xs text-gray-700 dark:text-gray-300 text-justify">
+                This project applied machine learning techniques — including linear regression, decision trees, 
+                and deep learning — to develop a pan-tissue epigenetic clock using DNA methylation data from over 
+                11,000 mammals. Sparse linear models performed best, identifying key genes associated with aging.
+              </p>
+              <a href="#"
+                 class="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg
+                        hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
+                        dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
+            <a href="#">
+              <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-28 at 19.15.jpg" alt="Brain Connectivity" />
+            </a>
+            <div class="p-5">
+              <h5 class="mb-2 text-xs font-bold tracking-tight text-gray-900 dark:text-white">
+                Mapping Region-to-Region Connectivity Across the Brain @ UvA &amp; CNCR
+              </h5>
+              <p class="mb-3 text-xs text-gray-700 dark:text-gray-300 text-justify">
+                Master’s thesis: This project investigated how the human cortex is organised by combining multimodal brain
+                connectivity data with graph-theoretical and spatial modelling approaches. Using large-scale MRI datasets,
+                it revealed hierarchical organisation patterns across cortical regions — showing how local and global
+                connectivity jointly shape cognitive function and brain network architecture.
+              </p>
+              <a href="#"
+                 class="inline-flex self-start px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg
+                        hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- /RIGHT -->
+    </div>
+  </section>
+
+  <!-- Dark Mode Toggle Script -->
+  <script>
+    const html = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+
+    // Load stored theme or system preference
+    if (localStorage.theme === 'dark') {
+      html.classList.add('dark');
+    } else if (localStorage.theme === 'light') {
+      html.classList.remove('dark');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      html.classList.add('dark');
+    }
+
+
+  </script>
+</body>
 </html>
-
