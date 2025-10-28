@@ -12,7 +12,9 @@
       }
     }
   </script>
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.3?plugins=forms,typography,aspect-ratio"></script>
+
+
 
 
   <!-- Keep this ONLY if you have custom compiled styles you need (otherwise remove) -->
@@ -21,16 +23,16 @@
   <title>Two Column Grid</title>
 </head>
 
-<body class="relative flex flex-col font-mono min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
+<body class="relative flex flex-col text-[1.05rem] font-mono min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
   <!-- background layer -->
   <div class="fixed inset-0 -z-10 bg-white dark:bg-gray-900"></div>
 
   <!-- Top navigation with dark-mode toggle -->
-  <nav class="absolute top-5 right-10 space-x-6 z-50 font-bold">
+  <!-- <nav class="absolute top-5 right-10 space-x-6 z-50 font-bold">
     <a href="#education" class="text-lg text-black dark:text-white hover:text-blue-500">Education</a>
     <a href="#projects" class="text-lg text-black dark:text-white hover:text-blue-500">Academic Projects</a>
     <a href="#blog" class="text-lg text-black dark:text-white hover:text-blue-500">Blog</a>
-  </nav>
+  </nav> -->
 
   <section class="min-h-screen flex items-center">
     <!-- EXACTLY TWO COLUMNS with a 35% / 65% split -->
@@ -55,10 +57,10 @@
         <!-- links and logos -->
         <div class="flex items-center pt-2">
           <a href="mailto:gabrielvascohaw@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Gabriel" class="inline-flex items-center justify-center px-1.5">
-            <img class="h-11 w-auto block" src="../images/gmail.webp" alt="Gmail" />
+            <img class="h-12 w-auto block" src="../images/gmail.webp" alt="Gmail" />
           </a>
           <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex items-center justify-center px-1.5">
-            <img class="h-11 w-auto block rounded" src="../images/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
+            <img class="h-10 w-auto block rounded" src="../images/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
           </a>
           <a href="https://www.linkedin.com/in/gabriel-haw-131477325" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex items-center justify-center px-1.5">
             <img class="h-10 w-auto block" src="../images/LinkedIn_icon.svg.png" alt="LinkedIn" />
@@ -67,38 +69,46 @@
         <!-- end links and logos -->
 
         <p class="text-gray-600 dark:text-gray-300 text-sm self-start pt-5">about</p>
-        <p class="pt-3 text-justify leading-relaxed text-xs text-gray-800 dark:text-gray-200">
+        <p class="pt-3 text-justify leading-relaxed text-sm text-gray-800 dark:text-gray-200">
           I am bioinformatics and sys bio graduate from the University of Amsterdam.
           I built this little portfolio site in my free time to learn some web dev and will continue to work on it as I go along. All the code can be found on my github.
         </p>
 
         <p class="pt-6 self-start text-sm text-gray-600 dark:text-gray-300 mb-4">skills</p>
         <div class="flex flex-wrap gap-2">
-          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Python</span>
+         <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Python</span>
           <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">R</span>
           <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">SQL</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">HTML</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">CSS</span>
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
+
+          <!-- Data Science / ML -->
           <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Machine Learning</span>
           <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Data Analysis</span>
           <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Feature Engineering</span>
           <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Model Evaluation</span>
+
+          <!-- Bioinformatics -->
+          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Bioinformatics</span>
         </div>
       </div>
 
       <!-- RIGHT -->
       <div class="p-3">
         <!-- education  -->
-        <h2 id="education" class="self-start pt-10 text-gray-600 dark:text-gray-300">Education</h2>
+        <h2 id="education" class="self-start  text-gray-600 dark:text-gray-300">Education</h2>
         <div class="flex flex-wrap justify-start gap-8">
           <div class="max-w-[90%]">
-            <p class="text-xs font-bold pt-5">BSc in Genomics — University of Bologna, Italy (2019–2023)</p>
-            <p class="text-xs text-justify mt-1 text-gray-800 dark:text-gray-200">
+            <p class="text-sm font-bold pt-5">BSc in Genomics — University of Bologna, Italy (2019–2023)</p>
+            <p class="text-justify mt-1 text-gray-800 text-sm dark:text-gray-200">
               Developed a strong foundation in bioinformatics, molecular biology, and statistical data analysis, focusing on the integration of genomic and multi-omic datasets. 
               Gained expierence on computational tools, data focused research, and interdisciplinary collaboration through practical coursework and an international academic environment. 
             </p>
-            <p class="text-xs font-bold mb-1 pt-4">MSc in Bioinformatics and Systems Biology — University of Amsterdam &amp; Vrije Universiteit Amsterdam, Netherlands (2023–2025)</p>
-            <p class="text-xs text-justify text-gray-800 dark:text-gray-200">
+            <p class="text-sm font-bold mb-1 pt-4">MSc in Bioinformatics and Systems Biology — University of Amsterdam &amp; Vrije Universiteit Amsterdam, Netherlands (2023–2025)</p>
+            <p class="text-sm text-justify text-gray-800 [.8rem] dark:text-gray-200">
               Learnt bioinformatic and sys bio principles, whilst gaining experience in sequence analysis, protein structure prediction, and modeling of biological networks. Used ML and deep learning frameworks to 
-              explore relevant features for predicting outcomes. Did my MSc research internship at the Center for Neurogenomics and Cognitive Research (CNCR).
+              explore relevant features for predicting outcomes. Did my MSc research project at the Center for Neurogenomics and Cognitive Research (CNCR).
             </p>
           </div>
         </div>
@@ -128,7 +138,7 @@
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Phyloseq</span>
               </div>
 
-              <p class="mb-3 mt-2 text-xs text-gray-700 dark:text-gray-300 text-justify">
+              <p class="mb-3 mt-2 text-sm text-gray-700 dark:text-gray-300 text-justify">
                 Bachelor's thesis: This project explored the evolutionary relationships between carnivorous mammals and their gut microbiomes. 
                 By comparing modern species with an extinct subspecies of hyena, it identified microbial genera such as Lachnoclostridium, Clostridium, and Peptoclostridium that have been preserved over time. 
                 These microbes, linked to meat digestion and gut health, support the idea that certain gut bacteria have co-evolved with their hosts and play key roles in carnivore biology.
@@ -170,7 +180,7 @@
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">LightGBM</span>
               </div>
 
-              <p class="mb-3 pt-2 text-xs text-gray-700 dark:text-gray-300 text-justify">
+              <p class="mb-3 pt-2 text-sm text-gray-700 dark:text-gray-300 text-justify">
                 In this project, we used machine learning, from linear regression and decision trees to deep learning,
                 to build a pan-tissue epigenetic clock using DNA methylation data from over 11,000 mammals. 
                 The work was inspired by the methylation clock principles developed by 
@@ -199,15 +209,23 @@
               <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-28 at 19.15.jpg" alt="Brain Connectivity" />
             </a>
             <div class="p-5">
-              <h5 class="mb-2 text-xs font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
                 Mapping Region-to-Region Connectivity Across the Brain @ UvA &amp; CNCR
               </h5>
-              <p class="mb-3 text-xs text-gray-700 dark:text-gray-300 text-justify">
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Git</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">CATO</span>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">FreeSurfer</span>
+              </div>
+
+              <p class="mb-3 text-sm pt-2  text-gray-700 dark:text-gray-300 text-justify">
                 Master’s thesis: This project explored the <em>tethering hypothesis</em> 
                 (<a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(13)00221-0?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1364661313002210%3Fshowall%3Dtrue"
                   class="text-blue-600 hover:underline dark:text-blue-400"
                   target="_blank" rel="noopener noreferrer">Buckner &amp; Krienen</a>), 
-                which looks at how certain organisational features of the brain may have guided the development of higher-order association areas in humans.
+                which looks at how certain organisational features of the brain may have guided the development of higher-order association areas in humans. These are the areas in the brain 
+                that are active during planning, decision-making, and understanding ourselves.
               </p>
 
 
@@ -228,6 +246,14 @@
       <!-- /RIGHT -->
     </div>
   </section>
+
+  <footer class="mt-20 py-6 text-center text-xs text-gray-500">
+    © 2025 Gabriel Haw.
+    <span class="block text-[11px] mt-1">
+      Built with ❤️ using <a href="https://tailwindcss.com" class="text-blue-600 dark:text-blue-400 hover:underline">Tailwind CSS</a>.
+    </span>
+  </footer>
+
 
   <!-- Dark Mode Toggle Script -->
   <script>
