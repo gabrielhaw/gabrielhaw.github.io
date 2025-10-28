@@ -12,7 +12,8 @@
       }
     }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
 
   <!-- Keep this ONLY if you have custom compiled styles you need (otherwise remove) -->
   <link href="../src/output.css" rel="stylesheet">
@@ -35,18 +36,21 @@
     <!-- EXACTLY TWO COLUMNS with a 35% / 65% split -->
     <div class="grid grid-cols-1 md:grid-cols-[35%_65%] gap-8 w-full">
 
+
+
       <!-- LEFT -->
       <div class="relative flex flex-col items-center p-8 bg-gray-50 dark:bg-gray-800">
         <!-- headline -->
-        <header class="italic absolute top-2 left-[1.5rem] z-10 text-3xl font-bold whitespace-nowrap typing-line pointer-events-none">
-
+        <header class="italic absolute top-2 left-[1.5rem] z-10 text-3xl font-bold whitespace-nowrap typing-line">
           Hello World,<br />
           <span class="block mt-1 pl-[60px] typing-line-2">I am Gabriel!</span>
         </header>
 
         <!-- me! -->
-        <img class="w-[21rem] h-auto mt-28 object-contain" src="../images/IMG_1580.png" alt="Gabriel" />
-        <p class="text-sm text-gray-600 dark:text-gray-300 pt-2">Bioinformatics &amp; Systems Biology Graduate</p>
+        <img class="w-[15rem] h-[15rem] mt-20 object-cover bg-white rounded-full"
+          src="../images/profilepic.jpg" alt="Gabriel" />
+
+        <p class="text-sm text-gray-600 dark:text-gray-300 pt-5">Bioinformatics &amp; Systems Biology Graduate</p>
 
         <!-- links and logos -->
         <div class="flex items-center pt-2">
@@ -84,9 +88,9 @@
       <div class="p-3">
         <!-- education  -->
         <h2 id="education" class="self-start pt-10 text-gray-600 dark:text-gray-300">Education</h2>
-        <div class="flex flex-wrap justify-start gap-6">
+        <div class="flex flex-wrap justify-start gap-8">
           <div class="max-w-[90%]">
-            <p class="text-xs font-bold pt-2">BSc in Genomics — University of Bologna, Italy (2019–2023)</p>
+            <p class="text-xs font-bold pt-5">BSc in Genomics — University of Bologna, Italy (2019–2023)</p>
             <p class="text-xs text-justify mt-1 text-gray-800 dark:text-gray-200">
               Developed a strong foundation in bioinformatics, molecular biology, and statistical data analysis, focusing on the integration of genomic and multi-omic datasets. 
               Gained expierence on computational tools, data focused research, and interdisciplinary collaboration through practical coursework and an international academic environment. 
@@ -105,11 +109,15 @@
 
           <!-- CARD 1 -->
           <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
-            <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-29 at 15.06.jpg" alt="Ancient Microbiomes" />
+            <a href="#">
+              <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-29 at 15.06.jpg" alt="Ancient Microbiomes" />
+            </a>
             <div class="p-5">
-            <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-              Bioinformatic and Biostatistical Analysis of Ancient Microbiomes @ University of Bologna, Italy
-            </h5>
+              <a href="#">
+                <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
+                  Bioinformatic and Biostatistical Analysis of Ancient Microbiomes @ University of Bologna, Italy
+                </h5>
+              </a>
               
               <!-- Tags -->
               <div class="flex flex-wrap gap-2">
@@ -141,12 +149,15 @@
 
           <!-- CARD 2 -->
           <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
-            <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-29 at 17.42.jpg" alt="Mammalian methylation age prediction" />
+            <a href="#">
+              <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-29 at 17.42.jpg" alt="Mammalian methylation age prediction" />
+            </a>
             <div class="p-5">
-              <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-                Age prediction using mammalian methylation profiles @ University of Amsterdam, Netherlands
-              </h5>
-
+              <a href="#">
+                <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
+                  Age prediction using mammalian methylation profiles @ University of Amsterdam, Netherlands
+                </h5>
+              </a>
               
               <div class="flex flex-wrap gap-2">
                 <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
@@ -168,20 +179,25 @@
                   target="_blank" rel="noopener noreferrer">Steve Horvath</a>.
               </p>
 
-              <a href="https://gabrielhaw.github.io/pdfs/MethylationML.pdf" target="_blank" rel="noopener noreferrer"
-                class="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg
+              <a href="/pdfs/MethylationML.pdf" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg
                         hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
                         dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" …>…</svg>
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
               </a>
-
             </div>
           </div>
 
           <!-- CARD 3 -->
           <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
-            <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-28 at 19.15.jpg" alt="Brain Connectivity" />
+            <a href="#">
+              <img class="rounded-t-lg w-full h-auto" src="../images/Image 2025-07-28 at 19.15.jpg" alt="Brain Connectivity" />
+            </a>
             <div class="p-5">
               <h5 class="mb-2 text-xs font-bold tracking-tight text-gray-900 dark:text-white">
                 Mapping Region-to-Region Connectivity Across the Brain @ UvA &amp; CNCR
