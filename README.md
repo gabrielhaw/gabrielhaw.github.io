@@ -2,8 +2,6 @@
 
 A personal portfolio website built to showcase my projects, skills, and experience and, ideally, to finally get a callback.
 
-Live site: **[gabrielhaw](https://gabrielhaw.github.io)**
-
 ---
 
 ## 🚀 About This Project
