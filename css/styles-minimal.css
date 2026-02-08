@@ -1,0 +1,39 @@
+/* Minimal Black & White Styles */
+
+.fade-in {
+  animation: fadeInUp 1s ease-out;
+}
+
+.fade-in-delayed {
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hamburger menu hover */
+.hamburger-menu:hover div {
+  background-color: #cbd5e1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Auto slider */
+.auto-slider {
+  display: flex;
+}
+
+.slider-item {
+  flex: 0 0 100%;
+}

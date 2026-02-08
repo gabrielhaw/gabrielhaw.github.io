@@ -21,11 +21,48 @@
 
   <title>Gabriel Haw - Portfolio</title>
 
+  <style>
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+  </style>
+
 </head>
 
-<body class="relative flex flex-col text-[1.05rem] font-mono min-h-screen bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden">
+<body class="relative flex flex-col text-[1.05rem] font-mono min-h-screen bg-gray-900 text-white transition-colors duration-300 overflow-x-hidden modern-bg">
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+    </svg>
+  </button>
+  
+  <!-- Hamburger Menu Button -->
+  <button id="menu-toggle" class="fixed top-6 right-6 z-50 w-12 h-12 flex flex-col items-center justify-center gap-1.5 hover:opacity-80 transition-opacity">
+    <span class="block w-8 h-0.5 bg-white"></span>
+    <span class="block w-8 h-0.5 bg-white"></span>
+    <span class="block w-8 h-0.5 bg-white"></span>
+  </button>
+
+  <!-- Menu Overlay -->
+  <div id="menu-overlay" class="hidden fixed inset-0 z-40 bg-black/95 flex items-center justify-center">
+    <div class="text-center space-y-8">
+      <a href="#projects" class="menu-link block text-4xl text-white hover:text-slate-400 transition-colors">Projects</a>
+      <a href="#about" class="menu-link block text-4xl text-white hover:text-slate-400 transition-colors">About</a>
+      <a href="#contact" class="menu-link block text-4xl text-white hover:text-slate-400 transition-colors">Contact</a>
+    </div>
+  </div>
+
   <!-- background layer -->
-  <div class="fixed inset-0 -z-10 bg-white dark:bg-gray-900"></div>
+  <div class="fixed inset-0 -z-10 bg-gray-900">
+    <div class="modern-grid"></div>
+  </div>
 
   <!-- Top navigation with dark-mode toggle -->
   <!-- <nav class="absolute top-5 right-10 space-x-6 z-50 font-bold">
@@ -34,343 +71,456 @@
     <a href="#blog" class="text-lg text-black dark:text-white hover:text-blue-500">Blog</a>
   </nav> -->
 
-  <section class="min-h-screen flex items-center">
-    <!-- EXACTLY TWO COLUMNS with a 35% / 65% split -->
-    <div class="grid grid-cols-1 md:grid-cols-[35%_65%] gap-8 w-full">
-
-
-
-      <!-- LEFT -->
-      <div class="relative flex flex-col items-center p-8 bg-gray-50 dark:bg-gray-800">
-        <!-- headline -->
-        <header class="italic absolute top-2 left-[1.5rem] z-10 text-3xl font-bold whitespace-nowrap typing-line">
-          Hello World,<br />
-          <span class="block mt-1 pl-[60px] typing-line-2">I am Gabriel!</span>
-        </header>
-
-        <!-- me! -->
-        <img class="w-[15rem] h-[15rem] mt-16 object-cover bg-white rounded-full"
-          src="site/images/profilepic.jpg" alt="Gabriel" />
-
-        <p class="text-sm text-gray-600 dark:text-gray-300 pt-5">Bioinformatics &amp; Systems Biology Graduate</p>
-
-        <!-- links and logos -->
-        <div class="flex items-center pt-2">
-          <a href="mailto:gabrielvascohaw@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email Gabriel" class="inline-flex items-center justify-center px-1.5">
-            <img class="h-12 w-auto block" src="site/images/gmail.webp" alt="Gmail" />
-          </a>
-          <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="inline-flex items-center justify-center px-1.5">
-            <img class="h-10 w-auto block rounded" src="site/images/GitHub-Mark-ea2971cee799.png" alt="GitHub" />
-          </a>
-          <a href="https://www.linkedin.com/in/gabriel-haw-131477325" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="inline-flex items-center justify-center px-1.5">
-            <img class="h-10 w-auto block" src="site/images/LinkedIn_icon.svg.png" alt="LinkedIn" />
-          </a>
-        </div>
-        <!-- end links and logos -->
-
-        <p class="text-gray-600 dark:text-gray-300 text-sm self-start pt-5">about</p>
-        <p class="pt-3 text-justify leading-relaxed text-sm text-gray-800 dark:text-gray-200">
-          I am a bioinformatics and sys bio graduate from the University of Amsterdam.
-          I built this little portfolio site in my free time to learn some web dev and will continue to work on it as I go along. All the code can be found on my github.
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center bg-black rounded-3xl relative overflow-hidden">
+    <!-- Background Video -->
+    <div class="absolute inset-0" style="z-index: 0;">
+      <iframe src="https://imagekit.io/player/embed/awpovrtsl/a7e8ce1e-fb19-4725-881d-f169dbd2f6d5.mov?controls=false&autoplay=true&loop=true&muted=true&background=%23000000" 
+              class="w-full h-full opacity-60" 
+              style="pointer-events: none; border: none; position: absolute; top: 0; left: 0;" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
+      </iframe>
+    </div>
+    
+    <!-- Content overlay -->
+    <div class="flex items-center justify-center gap-12 px-8 relative" style="z-index: 10;">
+      <div class="text-center">
+        <h1 id="typed-text" class="text-4xl md:text-5xl lg:text-6xl font-light text-white mb-6">
+          <span id="typing"></span><span id="cursor" class="animate-pulse">|</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-400 font-light mb-6">
+          I am a Bioinformatics and Systems Biology Graduate.
         </p>
-
-        <p class="pt-6 self-start text-sm text-gray-600 dark:text-gray-300 mb-4">skills</p>
-          <div class="flex flex-wrap gap-2">
-          <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Python</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">R</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">SQL</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">HTML</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">CSS</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Tailwind CSS</span>
-
-            <!-- Data Science / ML -->
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Machine Learning</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Data Analysis</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Feature Engineering</span>
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Model Evaluation</span>
-
-            <!-- Bioinformatics -->
-            <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">Bioinformatics</span>
-          </div>
-        
-          <div class="gap-2 w-full text-left pt-6">
-            <!-- Section title -->
-            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4 flex items-center gap-2">
-              📚 <span class="font-medium">Books I like</span>
-            </p>
-
-            <!-- Books list -->
-            <ul class="space-y-2 w-full">
-              <li class="group">
-                <a
-                  href="https://en.wikipedia.org/wiki/The_Water-Method_Man"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block rounded-md px-2 py-1 transition-all duration-200
-                        group-hover:bg-gray-100 dark:group-hover:bg-gray-800
-                        group-hover:translate-x-1"
-                >
-                  <p class="text-sm font-medium text-gray-900 dark:text-white hover:underline">
-                    The Water-Method Man
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">
-                    John Irving
-                  </p>
-                </a>
-              </li>
-
-              <li class="group">
-                <a
-                  href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block rounded-md px-2 py-1 transition-all duration-200
-                        group-hover:bg-gray-100 dark:group-hover:bg-gray-800
-                        group-hover:translate-x-1"
-                >
-                  <p class="text-sm font-medium text-gray-900 dark:text-white hover:underline">
-                    Zen and the Art of Motorcycle Maintenance
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">
-                    Robert M. Pirsig
-                  </p>
-                </a>
-              </li>
-
-              <li class="group">
-                <a
-                  href="https://en.wikipedia.org/wiki/Captain_Corelli%27s_Mandolin"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block rounded-md px-2 py-1 transition-all duration-200
-                        group-hover:bg-gray-100 dark:group-hover:bg-gray-800
-                        group-hover:translate-x-1"
-                >
-                  <p class="text-sm font-medium text-gray-900 dark:text-white hover:underline">
-                    Captain Corelli’s Mandolin
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">
-                    Louis de Bernières
-                  </p>
-                </a>
-              </li>
-
-              <li class="group">
-                <a
-                  href="https://en.wikipedia.org/wiki/I,_Robot"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block rounded-md px-2 py-1 transition-all duration-200
-                        group-hover:bg-gray-100 dark:group-hover:bg-gray-800
-                        group-hover:translate-x-1"
-                >
-                  <p class="text-sm font-medium text-gray-900 dark:text-white hover:underline">
-                    I, Robot
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">
-                    Isaac Asimov
-                  </p>
-                </a>
-              </li>
-
-              <li class="group">
-                <a
-                  href="https://en.wikipedia.org/wiki/Illusions_(Bach_novel)"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="block rounded-md px-2 py-1 transition-all duration-200
-                        group-hover:bg-gray-100 dark:group-hover:bg-gray-800
-                        group-hover:translate-x-1"
-                >
-                  <p class="text-sm font-medium text-gray-900 dark:text-white hover:underline">
-                    Illusions
-                  </p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">
-                    Richard Bach
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-
-      
-      <!-- RIGHT -->
-      <div class="p-3">
-        <!-- education  -->
-        <h2 id="education" class="self-start  text-gray-600 dark:text-gray-300">Education</h2>
-        <div class="flex flex-wrap justify-start gap-8">
-          <div class="max-w-[90%]">
-            <p class="text-sm font-bold pt-5">BSc in Genomics — University of Bologna, Italy (2020–2023)</p>
-            <p class="text-justify mt-1 text-gray-800 text-sm dark:text-gray-200">
-              Developed a strong foundation in bioinformatics, molecular biology, and statistical data analysis, focusing on the integration of genomic and multi-omic datasets. 
-              Gained experience with computational tools, data focused research, and interdisciplinary collaboration through practical coursework and an international academic environment. 
-            </p>
-            <p class="text-sm font-bold mb-1 pt-4">MSc in Bioinformatics and Systems Biology — University of Amsterdam &amp; Vrije Universiteit Amsterdam, Netherlands (2023–2025)</p>
-            <p class="text-sm text-justify text-gray-800 [.8rem] dark:text-gray-200">
-              Learnt bioinformatic and sys bio principles, whilst gaining experience in sequence analysis, protein structure prediction, and modeling of biological networks. Used ML and deep learning frameworks to 
-              explore relevant features for predicting outcomes. Did my MSc research project at the Center for Neurogenomics and Cognitive Research (CNCR).
-            </p>
-          </div>
-        </div>
-
-        <!-- PROJECTS -->
-        <h2 id="projects" class="self-start pt-10 text-gray-600 dark:text-gray-300">Academic projects</h2>
-        <div class="flex flex-wrap justify-start gap-6">
-
-          <!-- CARD 1 -->
-          <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
-            <a href="#">
-              <img class="rounded-t-lg w-full h-auto" src="site/images/Image 2025-07-29 at 15.06.jpg" alt="Ancient Microbiomes" />
-            </a>
-            <div class="p-5">
-              <a href="#">
-                <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-                  Bioinformatic and Biostatistical Analysis of Ancient Microbiomes @ University of Bologna, Italy
-                </h5>
-              </a>
-              
-              <!-- Tags -->
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">R</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">PhyloFlash</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">FastTree</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Phyloseq</span>
-              </div>
-
-              <p class="mb-3 mt-2 text-sm text-gray-700 dark:text-gray-300 text-justify">
-                Bachelor's thesis: This project explored the evolutionary relationships between carnivorous mammals and their gut microbiomes. 
-                By comparing modern species with an extinct subspecies of hyena, it identified microbial genera such as Lachnoclostridium, Clostridium, and Peptoclostridium that have been preserved over time. 
-                These microbes, linked to meat digestion and gut health, support the idea that certain gut bacteria have co-evolved with their hosts and play key roles in carnivore biology.
-              </p>
-              <a  href="site/pdfs/Bachelors_Thesis.pdf" target="_blank" rel="noopener noreferrer"
-                 class="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg
-                        hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
-                        dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- CARD 2 -->
-          <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
-            <a href="#">
-              <img class="rounded-t-lg w-full h-auto" src="site/images/Image 2025-07-29 at 17.42.jpg" alt="Mammalian methylation age prediction" />
-            </a>
-            <div class="p-5">
-              <a href="#">
-                <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-                  Age prediction using mammalian methylation profiles @ University of Amsterdam, Netherlands
-                </h5>
-              </a>
-              
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Machine Learning</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Scikit-learn</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Keras</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Optuna</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Regression</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Elastic Net</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">LightGBM</span>
-              </div>
-
-              <p class="mb-3 pt-2 text-sm text-gray-700 dark:text-gray-300 text-justify">
-                In this project, we used machine learning, from linear regression and decision trees to deep learning,
-                to build a pan-tissue epigenetic clock using DNA methylation data from over 11,000 mammals. 
-                The work was inspired by the methylation clock principles developed by 
-                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4015143/" 
-                  class="text-blue-600 hover:underline dark:text-blue-400" 
-                  target="_blank" rel="noopener noreferrer">Steve Horvath</a>.
-              </p>
-
-              <a href="site/pdfs/MethylationML.pdf" target="_blank" rel="noopener noreferrer"
-                 class="inline-flex items-center px-3 py-2 text-xs font-medium text-center text-white bg-blue-700 rounded-lg
-                        hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
-                        dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- CARD 3 -->
-          <div class="max-w-[45%] rounded-lg shadow-sm bg-white dark:bg-gray-800 dark:border-gray-700 pt-5">
-            <a href="#">
-              <img class="rounded-t-lg w-full h-auto" src="site/images/Image 2025-07-28 at 19.15.jpg" alt="Brain Connectivity" />
-            </a>
-            <div class="p-5">
-              <h5 class="mb-2 text-sm font-bold tracking-tight text-gray-900 dark:text-white">
-                Mapping Region-to-Region Connectivity Across the Brain @ UvA &amp; CNCR
-              </h5>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Python</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">Git</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">CATO</span>
-                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs">FreeSurfer</span>
-              </div>
-
-              <p class="mb-3 text-sm pt-2  text-gray-700 dark:text-gray-300 text-justify">
-                Master’s thesis: This project explored the <em>tethering hypothesis</em> 
-                (<a href="https://www.cell.com/trends/cognitive-sciences/fulltext/S1364-6613(13)00221-0?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretrieve%2Fpii%2FS1364661313002210%3Fshowall%3Dtrue"
-                  class="text-blue-600 hover:underline dark:text-blue-400"
-                  target="_blank" rel="noopener noreferrer">Buckner &amp; Krienen</a>), 
-                which looks at how certain organisational features of the brain may have guided the development of higher-order association areas in humans. These are the areas in the brain 
-                that are active during planning, decision-making, and understanding ourselves.
-              </p>
-
-
-              <a href="site/pdfs/Masters_Thesis.pdf" target="_blank" rel="noopener noreferrer"
-                 class="inline-flex self-start px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg
-                        hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600">
-                Read more
-                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
+        <!-- Social Media Links -->
+        <div class="flex justify-center gap-6 mt-6">
+          <a href="mailto:gabrielhaw26@gmail.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-slate-400 transition-colors">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/gabriel-haw" target="_blank" rel="noopener noreferrer" class="text-white hover:text-slate-400 transition-colors">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer" class="text-white hover:text-slate-400 transition-colors">
+            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
         </div>
       </div>
-      <!-- /RIGHT -->
+      <img id="profile-pic" src="site/images/profilepic.jpg" alt="Gabriel Haw" class="w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover cursor-pointer transition-transform duration-500 hover:scale-105" onclick="this.classList.add('spin-once')" />
     </div>
   </section>
 
-  <footer class="mt-20 py-6 text-center text-xs text-gray-500">
-    © 2025 Gabriel Haw.
-    <span class="block text-[11px] mt-1">
-      Built with ❤️ using <a href="https://tailwindcss.com" class="text-blue-600 dark:text-blue-400 hover:underline">Tailwind CSS</a>.
-    </span>
-  </footer>
+  <!-- Projects Section -->
+  <section id="projects" class="min-h-screen bg-white py-20 rounded-3xl">
+    <div class="w-full max-w-7xl mx-auto px-8">
+      <h2 class="text-5xl font-light text-black text-center mb-12">Projects & Activity</h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Projects Column -->
+        <div>
+          <h3 class="text-3xl font-light text-black mb-6">Featured Projects</h3>
+          <!-- Image Slider Container -->
+          <div class="relative overflow-hidden rounded-3xl shadow-2xl" style="height: 500px;">
+            <div class="project-slider flex transition-transform duration-700 ease-in-out h-full w-full">
+          
+          <!-- Project Image 1 -->
+          <a href="site/pdfs/Bachelors_Thesis.pdf" target="_blank" rel="noopener noreferrer" 
+             class="project-slide min-w-full flex-shrink-0 h-full relative group cursor-pointer bg-white">
+            <div class="absolute inset-0 flex items-center justify-center p-12">
+              <img src="site/images/project1.jpg" alt="Ancient Microbiomes Project" 
+                   class="max-w-[95%] max-h-[95%] object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent flex items-end pointer-events-none">
+              <div class="p-8">
+                <h3 class="text-white text-2xl font-light mb-2">Ancient Microbiomes Analysis</h3>
+                <p class="text-slate-300">Bachelor's Thesis - University of Bologna</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Image 2 -->
+          <a href="site/pdfs/MethylationML.pdf" target="_blank" rel="noopener noreferrer"
+             class="project-slide min-w-full flex-shrink-0 h-full relative group cursor-pointer bg-white">
+            <div class="absolute inset-0 flex items-center justify-center p-12">
+              <img src="site/images/project2.jpg" alt="Methylation ML Project" 
+                   class="max-w-[95%] max-h-[95%] object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent flex items-end pointer-events-none">
+              <div class="p-8">
+                <h3 class="text-white text-2xl font-light mb-2">Pan-Tissue Epigenetic Clock</h3>
+                <p class="text-slate-300">Machine Learning Project</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Project Image 3 -->
+          <a href="site/pdfs/Masters_Thesis.pdf" target="_blank" rel="noopener noreferrer"
+             class="project-slide min-w-full flex-shrink-0 h-full relative group cursor-pointer bg-white">
+            <div class="absolute inset-0 flex items-center justify-center p-12">
+              <img src="site/images/project3.jpg" alt="Brain Connectivity Project" 
+                   class="max-w-[95%] max-h-[95%] object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
+            </div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent flex items-end pointer-events-none">
+              <div class="p-8">
+                <h3 class="text-white text-2xl font-light mb-2">Brain Connectivity Mapping</h3>
+                <p class="text-slate-300">Master's Thesis - University of Amsterdam</p>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+        </div>
+        
+        <!-- GitHub Activity Column -->
+        <div class="flex flex-col justify-center">
+          <div class="bg-gray-50 rounded-3xl p-6 shadow-2xl">
+            <div class="mb-4 flex justify-center">
+              <img src="https://ghchart.rshah.org/409ba5/gabrielhaw" alt="GitHub Contribution Chart" class="rounded-lg w-full" />
+            </div>
+            <div class="mt-6">
+              <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-black hover:text-gray-600 transition-colors text-lg">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View Full Profile
+              </a>
+            </div>
+            
+            <!-- GitHub Stats -->
+            <div class="mt-6 space-y-3">
+              <div class="text-sm text-gray-700">
+                <p class="font-semibold mb-2">Recent Activity:</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                  <li>Bioinformatics projects</li>
+                  <li>Machine Learning models</li>
+                  <li>Data analysis pipelines</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="min-h-screen bg-black rounded-3xl py-20 flex items-center justify-center">
+    <div class="max-w-5xl mx-auto px-8 w-full">
+      <div class="text-center mb-12 opacity-0 translate-y-10 transition-all duration-1000" id="about-title">
+        <h2 class="text-6xl md:text-7xl font-light text-white mb-4">About Me</h2>
+        <div class="w-24 h-1 bg-white mx-auto"></div>
+      </div>
+      
+      <!-- Carousel Container -->
+      <div class="relative">
+        <div class="overflow-hidden">
+          <div class="about-carousel flex transition-transform duration-500 ease-in-out">
+            
+            <!-- Who I Am Card -->
+            <div class="min-w-full flex justify-center px-4">
+              <div class="bg-gray-900 rounded-3xl p-12 w-full max-w-3xl shadow-2xl">
+                <h3 class="text-4xl font-light text-white mb-6 text-center">Who I Am</h3>
+                <p class="text-gray-300 leading-relaxed text-xl text-center">
+                  I'm a data scientist with deep biological domain knowledge, specializing in bioinformatics and systems biology. My expertise lies in applying machine learning and computational approaches to solve complex biological problems, from genomic data analysis to network modeling. I bridge the gap between data science and life sciences, translating biological questions into computational solutions.
+                </p>
+              </div>
+            </div>
+
+            <!-- Education Card -->
+            <div class="min-w-full flex justify-center px-4">
+              <div class="bg-gray-900 rounded-3xl p-12 w-full max-w-3xl shadow-2xl">
+                <h3 class="text-4xl font-light text-white mb-6 text-center">Education</h3>
+                <div class="space-y-6 max-h-96 overflow-y-auto">
+                  <div>
+                    <p class="text-xl font-semibold text-white mb-2">MSc in Bioinformatics and Systems Biology</p>
+                    <p class="text-base text-gray-400 mb-2">University of Amsterdam & Vrije Universiteit Amsterdam, Netherlands (2023–2025)</p>
+                    <p class="text-gray-300 leading-relaxed">
+                      Learnt bioinformatic and sys bio principles, whilst gaining experience in sequence analysis, protein structure prediction, and modeling of biological networks. Used ML and deep learning frameworks to explore relevant features for predicting outcomes. Did my MSc research project at the Center for Neurogenomics and Cognitive Research (CNCR).
+                    </p>
+                  </div>
+                  <div>
+                    <p class="text-xl font-semibold text-white mb-2">BSc in Genomics</p>
+                    <p class="text-base text-gray-400 mb-2">University of Bologna, Italy (2020–2023)</p>
+                    <p class="text-gray-300 leading-relaxed">
+                      Developed a strong foundation in bioinformatics, molecular biology, and statistical data analysis, focusing on the integration of genomic and multi-omic datasets. Gained experience with computational tools, data focused research, and interdisciplinary collaboration through practical coursework and an international academic environment.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Skills Card -->
+            <div class="min-w-full flex justify-center px-4">
+              <div class="bg-gray-900 rounded-3xl p-12 w-full max-w-3xl shadow-2xl">
+                <h3 class="text-4xl font-light text-white mb-6 text-center">Skills</h3>
+                <div class="flex flex-wrap gap-3 justify-center max-h-96 overflow-y-auto">
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Python</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">R</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">SQL</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Bash/Shell Scripting</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Git/Version Control</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">HTML</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">CSS</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Tailwind CSS</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Jupyter Notebooks</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Pandas</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">NumPy</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">scikit-learn</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">TensorFlow/PyTorch</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Biopython</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Machine Learning</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Data Analysis</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Feature Engineering</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Model Evaluation</span>
+                  <span class="bg-white text-black px-5 py-3 rounded-full text-base">Bioinformatics</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reading List Card -->
+            <div class="min-w-full flex justify-center px-4">
+              <div class="bg-gray-900 rounded-3xl p-12 w-full max-w-3xl shadow-2xl">
+                <h3 class="text-4xl font-light text-white mb-6 text-center">Reading List</h3>
+                <ul class="space-y-3 max-h-96 overflow-y-auto">
+                  <li class="group">
+                    <a href="https://en.wikipedia.org/wiki/The_Water-Method_Man" target="_blank" rel="noopener noreferrer"
+                       class="block hover:translate-x-1 transition-transform">
+                      <p class="text-base font-medium text-white hover:underline">The Water-Method Man</p>
+                      <p class="text-sm text-gray-400">John Irving</p>
+                    </a>
+                  </li>
+                  <li class="group">
+                    <a href="https://en.wikipedia.org/wiki/Zen_and_the_Art_of_Motorcycle_Maintenance" target="_blank" rel="noopener noreferrer"
+                       class="block hover:translate-x-1 transition-transform">
+                      <p class="text-base font-medium text-white hover:underline">Zen and the Art of Motorcycle Maintenance</p>
+                      <p class="text-sm text-gray-400">Robert M. Pirsig</p>
+                    </a>
+                  </li>
+                  <li class="group">
+                    <a href="https://en.wikipedia.org/wiki/Captain_Corelli%27s_Mandolin" target="_blank" rel="noopener noreferrer"
+                       class="block hover:translate-x-1 transition-transform">
+                      <p class="text-base font-medium text-white hover:underline">Captain Corelli's Mandolin</p>
+                      <p class="text-sm text-gray-400">Louis de Bernières</p>
+                    </a>
+                  </li>
+                  <li class="group">
+                    <a href="https://en.wikipedia.org/wiki/I,_Robot" target="_blank" rel="noopener noreferrer"
+                       class="block hover:translate-x-1 transition-transform">
+                      <p class="text-base font-medium text-white hover:underline">I, Robot</p>
+                      <p class="text-sm text-gray-400">Isaac Asimov</p>
+                    </a>
+                  </li>
+                  <li class="group">
+                    <a href="https://en.wikipedia.org/wiki/Illusions_(Bach_novel)" target="_blank" rel="noopener noreferrer"
+                       class="block hover:translate-x-1 transition-transform">
+                      <p class="text-base font-medium text-white hover:underline">Illusions</p>
+                      <p class="text-sm text-gray-400">Richard Bach</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        <!-- Navigation Dots -->
+        <div class="flex justify-center gap-3 mt-8">
+          <button class="about-dot w-3 h-3 rounded-full bg-white transition-all" data-index="0"></button>
+          <button class="about-dot w-3 h-3 rounded-full bg-gray-600 transition-all" data-index="1"></button>
+          <button class="about-dot w-3 h-3 rounded-full bg-gray-600 transition-all" data-index="2"></button>
+          <button class="about-dot w-3 h-3 rounded-full bg-gray-600 transition-all" data-index="3"></button>
+        </div>
+      </div>
+      
+      <!-- Contact Section -->
+      <div id="contact" class="mt-20 pt-12 border-t border-gray-800">
+        <h3 class="text-4xl font-light text-white mb-8 text-center">Get In Touch</h3>
+        <p class="text-gray-300 text-center text-lg mb-6">Feel free to reach out for collaborations or opportunities</p>
+        <div class="flex flex-col items-center gap-4">
+          <a href="mailto:gabrielvascohaw@gmail.com" class="text-white hover:text-slate-400 transition-colors text-xl flex items-center gap-3">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            gabrielvascohaw@gmail.com
+          </a>
+          <p class="text-gray-400 text-base flex items-center gap-2">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            Based in South Africa
+          </p>
+        </div>
+      </div>
+      
+      <!-- Footer integrated into About section -->
+      <div class="py-8 text-center text-sm text-gray-400 mt-12">
+        © 2025 Gabriel Haw.
+      </div>
+    </div>
+  </section>
 
 
   <!-- Dark Mode Toggle Script -->
   <script>
-    const html = document.documentElement;
-    const toggle = document.getElementById('theme-toggle');
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+      const scrollProgress = document.getElementById('scroll-progress');
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
 
-    // Load stored theme or system preference
-    if (localStorage.theme === 'dark') {
-      html.classList.add('dark');
-    } else if (localStorage.theme === 'light') {
-      html.classList.remove('dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      html.classList.add('dark');
+    // Force video to play
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+      heroVideo.play().catch(e => console.log('Video autoplay failed:', e));
     }
 
+    // Hamburger menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const menuLinks = document.querySelectorAll('.menu-link');
+
+    menuToggle.addEventListener('click', () => {
+      menuOverlay.classList.toggle('hidden');
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menuOverlay.classList.add('hidden');
+      });
+    });
+
+    // Typing animation
+    const textToType = "Hey, I am Gabriel.";
+    const typingElement = document.getElementById('typing');
+    let charIndex = 0;
+
+    function typeText() {
+      if (charIndex < textToType.length) {
+        typingElement.textContent += textToType.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeText, 100);
+      } else {
+        document.getElementById('cursor').style.display = 'none';
+      }
+    }
+
+    // Start typing after a short delay
+    setTimeout(typeText, 500);
+
+    // Profile picture spin animation
+    const profilePic = document.getElementById('profile-pic');
+    if (profilePic) {
+      profilePic.addEventListener('click', function() {
+        this.classList.add('spin-once');
+        setTimeout(() => {
+          this.classList.remove('spin-once');
+        }, 600);
+      });
+    }
+
+    // Auto-scrolling project slider
+    let currentSlide = 0;
+    const projectSlider = document.querySelector('.project-slider') || document.querySelector('.auto-slider');
+    const projectSlides = document.querySelectorAll('.project-slide, .slider-item');
+    const totalSlides = projectSlides.length;
+
+    if (projectSlider && totalSlides > 0) {
+      function autoScroll() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        projectSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      }
+
+      // Auto-scroll every 5 seconds
+      setInterval(autoScroll, 5000);
+    }
+
+    // Scroll animation for About section popup
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, observerOptions);
+
+    // Observe about section elements
+    const aboutTitle = document.getElementById('about-title');
+    
+    if (aboutTitle) observer.observe(aboutTitle);
+
+    // About section carousel
+    const aboutCarousel = document.querySelector('.about-carousel');
+    const aboutDots = document.querySelectorAll('.about-dot');
+    let currentAboutIndex = 0;
+
+    function updateAboutCarousel(index) {
+      currentAboutIndex = index;
+      aboutCarousel.style.transform = `translateX(-${index * 100}%)`;
+      
+      aboutDots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-gray-600');
+          dot.classList.add('bg-white');
+        } else {
+          dot.classList.remove('bg-white');
+          dot.classList.add('bg-gray-600');
+        }
+      });
+    }
+
+    aboutDots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index'));
+        updateAboutCarousel(index);
+      });
+    });
+
+    // Optional: Swipe support for mobile
+    let aboutStartX = 0;
+    let aboutCurrentX = 0;
+    aboutCarousel.parentElement.addEventListener('touchstart', (e) => {
+      aboutStartX = e.touches[0].clientX;
+    });
+
+    aboutCarousel.parentElement.addEventListener('touchmove', (e) => {
+      aboutCurrentX = e.touches[0].clientX;
+    });
+
+    aboutCarousel.parentElement.addEventListener('touchend', () => {
+      const diff = aboutStartX - aboutCurrentX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && currentAboutIndex < 3) {
+          updateAboutCarousel(currentAboutIndex + 1);
+        } else if (diff < 0 && currentAboutIndex > 0) {
+          updateAboutCarousel(currentAboutIndex - 1);
+        }
+      }
+    });
+
+    // Keyboard arrow navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' && currentAboutIndex < 3) {
+        updateAboutCarousel(currentAboutIndex + 1);
+      } else if (e.key === 'ArrowLeft' && currentAboutIndex > 0) {
+        updateAboutCarousel(currentAboutIndex - 1);
+      }
+    });
 
   </script>
 </body>
