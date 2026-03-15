@@ -215,7 +215,7 @@
     }
     
     /* Prevent layout shift from images and iframes */
-    img, iframe, video {
+    img, iframe {
       max-width: 100%;
       height: auto;
       display: block;
@@ -295,16 +295,7 @@
 
   <!-- Hero Section -->
   <section class="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
-    <!-- Background Video -->
-    <div class="absolute inset-0" style="z-index: 0;">
-      <iframe src="https://imagekit.io/player/embed/awpovrtsl/a7e8ce1e-fb19-4725-881d-f169dbd2f6d5.mov?controls=false&autoplay=true&loop=true&muted=true&background=%23000000&playsinline=true" 
-              class="w-full h-full opacity-60" 
-              style="pointer-events: none; border: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" 
-              frameBorder="0" 
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen">
-      </iframe>
-    </div>
+    <div id="heroVideoContainer" class="absolute inset-0" style="z-index: 0;"></div>
     
     <!-- Content overlay -->
     <div class="max-w-4xl mx-auto px-6 relative" style="z-index: 10;">
@@ -1190,7 +1181,7 @@
       
       <div class="bg-white border-2 border-gray-200 rounded-xl p-8">
         <p class="text-lg text-gray-700 leading-relaxed mb-6">
-          I work in applied machine learning, mainly using Python and scikit-learn. I enjoy exploring complex datasets and building predictive models carefully. I'm still learning and improving, and I like understanding how things actually work.
+          I am a data scientist, mainly using Python and scikit-learn. I enjoy exploring complex datasets and building predictive models. I'm still learning and improving, and I like understanding how things actually work.
         </p>
         <p class="text-lg text-gray-700 leading-relaxed mb-6">
           Outside of that, I spend a lot of time fishing and birding. Don't particularly like ibises very much. Plus I'm very interested in mammalian evolution (probably seen from my projects). Simple but super. When I get the chance, I also enjoy riding motorcycles.
@@ -1446,6 +1437,28 @@
       }
     });
   </script>
+  <script>
+    (function () {
+      var container = document.getElementById("heroVideoContainer");
+      if (!container) return;
 
+      var video = document.createElement("video");
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.setAttribute("playsinline", "");
+      video.setAttribute("muted", "");
+      video.style.cssText = "position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.6;transform:translateZ(0);";
+
+      // Attach listener BEFORE setting src so the event is never missed
+      video.addEventListener("canplay", function () {
+        video.play().catch(function () {});
+      }, { once: true });
+
+      video.src = "site/images/a7e8ce1e-fb19-4725-881d-f169dbd2f6d5.webm";
+      container.appendChild(video);
+    })();
+  </script>
 </body>
 </html>
