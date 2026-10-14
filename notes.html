@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Questions Gabriel Haw has been asked in data science job interviews, what was said at the time, and what would be said now.">
+  <title>Interview notes · Gabriel Haw</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Onest:wght@400..600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/style.css">
+
+  <style>
+    .nav { color: var(--ink); background: rgba(237, 240, 242, 0.94); box-shadow: 0 1px 0 var(--line); }
+
+    .notes-head { padding: 8rem 0 2rem; }
+
+    .notes-head .hand {
+      font-size: 1.75rem;
+      color: var(--tomato-ink);
+      display: inline-block;
+      transform: rotate(-3deg);
+      margin: 0 0 0.5rem;
+    }
+
+    .notes-head h1 {
+      font-size: clamp(3.25rem, 11vw, 8.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .notes-head .lede {
+      font-size: 1.25rem;
+      max-width: 38rem;
+      margin: 1.5rem 0 0;
+    }
+
+    .q {
+      display: grid;
+      gap: 1rem 3rem;
+      padding: 2.75rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    .q > * { min-width: 0; }
+
+    @media (min-width: 860px) {
+      .q { grid-template-columns: 12rem 1fr; }
+    }
+
+    .stamp {
+      align-self: start;
+      justify-self: start;
+      font-weight: 600;
+      font-size: 0.85rem;
+      border: 2px solid var(--tomato);
+      color: var(--tomato-ink);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      transform: rotate(-3deg);
+    }
+
+    .q-body { max-width: 44rem; }
+
+    .q h2 {
+      font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+      margin-bottom: 0.9rem;
+    }
+
+    .asked {
+      font-size: 1.15rem;
+      margin: 0 0 1.5rem;
+    }
+
+    .said {
+      background: var(--highlight);
+      padding: 1.1rem 1.25rem;
+      transform: rotate(-0.6deg);
+      margin: 0 0 1.5rem;
+      box-shadow: 0 10px 22px -16px rgba(40, 32, 20, 0.5);
+    }
+
+    .said .label, .now-label {
+      font-family: var(--hand);
+      font-size: 1.45rem;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .now-label { color: var(--tomato-ink); }
+
+    .said p { margin: 0; }
+
+    .q ul { padding-left: 1.1rem; margin: 0.25rem 0 1rem; }
+    .q li { margin-bottom: 0.4rem; }
+    .q li::marker { color: var(--tomato); }
+
+    pre {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 1.1rem 1.25rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      margin: 0.5rem 0 1rem;
+    }
+
+    code { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+
+    .tip {
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="nav-name">GH</a>
+      <div class="nav-links">
+        <a href="index.html#photos">photos</a>
+        <a href="index.html#work">work</a>
+        <a href="index.html#about">me</a>
+        <a href="notes.html" aria-current="page">notes</a>
+        <a href="now.html" class="now-link">now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="notes-head">
+      <div class="wrap">
+        <p class="hand">from the job hunt</p>
+        <h1>Interview notes</h1>
+        <p class="lede">Questions I’ve been asked while applying for data jobs, what I said at the time, and what I’d say now. Writing them down is how I’m learning from them.</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+
+      <article class="q">
+        <span class="stamp">business case</span>
+        <div class="q-body">
+          <h2>Declining e&#8209;commerce sales</h2>
+          <p class="asked">If a company’s in-store sales are stable but its e-commerce sales are dropping, what are the first things you would look at?</p>
+          <div class="said">
+            <span class="label">what I said</span>
+            <p>Check whether anything inside the business had changed, especially on the online platform compared with the physical stores. If nothing had, look at changes in customer behaviour or market conditions.</p>
+          </div>
+          <span class="now-label">what I’d add now</span>
+          <ul>
+            <li>First check the drop is real, not broken tracking or a reporting change</li>
+            <li>Split the funnel: fewer visitors, fewer people buying, or smaller baskets?</li>
+            <li>Then slice it by device, channel, region and product to see where it’s happening</li>
+            <li>Only then look outside: competitors, prices, seasonality</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="q">
+        <span class="stamp">business case</span>
+        <div class="q-body">
+          <h2>Which customers to prioritise</h2>
+          <p class="asked">A textile company sells materials like silk and wool to customers such as Zara and H&amp;M. It wants to keep or strengthen these relationships. How would you decide which ones to prioritise?</p>
+          <div class="said">
+            <span class="label">what I said</span>
+            <p>Build a forecasting model to predict the potential revenue from each customer, and use those predictions to help prioritise.</p>
+          </div>
+          <span class="now-label">what I’d add now</span>
+          <ul>
+            <li>Revenue isn’t everything: margin, growth and the risk of losing a customer matter too</li>
+            <li>Start with a simple score across those before building a model</li>
+            <li>Ask the sales team what they already know about each customer</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="q">
+        <span class="stamp">SQL</span>
+        <div class="q-body">
+          <h2>Customer spending in August</h2>
+          <p class="asked">Write a SQL query that groups sales by customer and calculates how much each customer spent in August.</p>
+          <span class="now-label">what I’d write</span>
+<pre><code>SELECT customer_id,
+       SUM(amount) AS total_spent
+FROM sales
+WHERE sale_date &gt;= '2026-08-01'
+  AND sale_date &lt;  '2026-09-01'
+GROUP BY customer_id
+ORDER BY total_spent DESC;</code></pre>
+          <p class="tip">Using a date range instead of “month = 8” means you don’t mix up Augusts from different years, and the database can use an index on the date.</p>
+        </div>
+      </article>
+
+      <article class="q">
+        <span class="stamp">metrics</span>
+        <div class="q-body">
+          <h2>Accuracy, precision and recall</h2>
+          <p class="asked">What do accuracy, precision and recall mean, and when would you use each?</p>
+          <span class="now-label">my notes</span>
+          <ul>
+            <li><strong>Accuracy:</strong> the share of predictions that are right. Fine when classes are balanced, misleading when they aren’t (99% accuracy is easy if 99% of cases are negative)</li>
+            <li><strong>Precision:</strong> of everything you flagged as positive, how much really was. Use it when false alarms are costly, like a spam filter binning real emails</li>
+            <li><strong>Recall:</strong> of all the real positives, how many you caught. Use it when missing one is costly, like screening for a disease</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="q">
+        <span class="stamp">time series</span>
+        <div class="q-body">
+          <h2>Evaluating a forecasting model</h2>
+          <p class="asked">How would you evaluate a time-series forecasting model? We talked about metrics like mean absolute error.</p>
+          <span class="now-label">my notes</span>
+          <ul>
+            <li>Never shuffle. Train on the past, test on the future, ideally with rolling (walk-forward) splits</li>
+            <li>Compare against a dumb baseline, like “same as last week”. If you can’t beat it, the model isn’t helping</li>
+            <li>MAE is easy to explain (average error in real units). RMSE punishes big misses more. Be careful with MAPE when values get close to zero</li>
+            <li>Watch for leakage: features that quietly use information from the future</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="q">
+        <span class="stamp">modelling</span>
+        <div class="q-body">
+          <h2>Simple or complex model?</h2>
+          <p class="asked">When would you use a simple model rather than a more complex one? Which hyperparameters would you tune?</p>
+          <span class="now-label">my notes</span>
+          <ul>
+            <li>Start simple. Go for it when data is small, features are many, or people need to understand the model. In my epigenetic clock, Elastic Net beat LightGBM and a neural network</li>
+            <li>Go complex when there’s lots of data, clearly non-linear patterns, and the extra accuracy is worth losing some interpretability</li>
+            <li>Hyperparameters: regularisation strength (and the L1/L2 mix) for linear models; tree depth, learning rate, number of trees and minimum samples per leaf for boosting</li>
+            <li>Tune with cross-validation, for example with Optuna, and keep an eye on overfitting</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <h2>Say hi</h2>
+      <p>About bytli, birds, science, bikes, or a job. All good.</p>
+      <a class="foot-email" href="mailto:gabrielvascohaw@gmail.com">gabrielvascohaw@gmail.com</a>
+      <div class="foot-links">
+        <a href="index.html">Back home</a>
+        <a href="now.html">What I'm up to now</a>
+        <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/gabriel-haw" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="foot-small">
+        <span>Last updated October 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

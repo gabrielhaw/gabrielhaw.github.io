@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600..800&family=Onest:wght@400..600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Onest:wght@400..600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="site/video/hero-poster.jpg">
   <link rel="stylesheet" href="site/style.css">
 
@@ -53,14 +53,13 @@
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 11.5vw, 9.5rem);
-      line-height: 0.9;
-      letter-spacing: -0.04em;
+      font-size: clamp(3.25rem, 12vw, 10rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
     }
 
     .hero-tagline {
-      font-family: var(--display);
-      font-weight: 600;
+      font-weight: 500;
       font-size: clamp(1.2rem, 2.6vw, 1.75rem);
       line-height: 1.25;
       margin: 1rem 0 1.5rem;
@@ -125,9 +124,7 @@
     .note li:last-child { border-bottom: 0; }
 
     .note a.go {
-      font-family: var(--display);
-      font-weight: 700;
-      text-decoration-color: var(--ink);
+      font-weight: 600;
     }
 
     .lately-pic { text-decoration: none; display: block; max-width: 34rem; }
@@ -171,8 +168,7 @@
     .stamp {
       align-self: start;
       justify-self: start;
-      font-family: var(--display);
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.85rem;
       border: 2px solid var(--tomato);
       color: var(--tomato-ink);
@@ -201,8 +197,7 @@
       list-style: none;
       display: inline-flex;
       gap: 0.4rem;
-      font-family: var(--display);
-      font-weight: 700;
+      font-weight: 600;
       color: var(--tomato-ink);
     }
 
@@ -252,8 +247,7 @@
     }
 
     .likes li {
-      font-family: var(--display);
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.95rem;
       padding: 0.35rem 0.8rem;
       border: 2px solid var(--ink);
@@ -276,6 +270,7 @@
         <a href="#photos">photos</a>
         <a href="#work">work</a>
         <a href="#about">me</a>
+        <a href="notes.html">notes</a>
         <a href="now.html" class="now-link">now</a>
       </div>
     </div>
@@ -293,17 +288,10 @@
       <p class="hero-tagline">Figuring out this funny thing that is life.</p>
       <div class="hero-text">
         <p>I work with data, mostly in biological systems. I think evolution is incredibly cool, and I’m interested in how complex structures, like brains or genomes, organise themselves.</p>
-        <p>Also, unapologetically a fangirl of Richard Dawkins.</p>
+        <p>Also, a fangirl of Richard Dawkins.</p>
       </div>
     </div>
   </header>
-
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <span>birding</span><span>fishing</span><span>motorcycles</span><span>evolution</span><span>brains</span><span>genomes</span><span>camping</span><span>not ibises</span>
-      <span>birding</span><span>fishing</span><span>motorcycles</span><span>evolution</span><span>brains</span><span>genomes</span><span>camping</span><span>not ibises</span>
-    </div>
-  </div>
 
   <main>
 
@@ -314,7 +302,8 @@
           <ul>
             <li>building <strong>bytli</strong>, a food journal for you and your friends</li>
             <li>spamming job applications</li>
-            <li>running, mostly to avoid responsibilities</li>
+            <li>writing down every interview question I get asked</li>
+            <li>sitting in flat, rainy Utrecht</li>
           </ul>
           <a class="go" href="now.html">The full update →</a>
         </div>
@@ -330,26 +319,26 @@
     <section id="photos" class="block">
       <div class="wrap">
         <div class="block-head">
-          <h2>Out there</h2>
-          <span class="hand">where I go instead of answering emails</span>
+          <h2>Places I used to go</h2>
+          <span class="hand">on hold for now, while I find work</span>
         </div>
 
         <div class="wall">
           <figure class="polaroid">
-            <img src="site/images/journal/elephant.webp" alt="An elephant silhouetted on open plains under a red sunset" width="1600" height="1200" loading="lazy">
-            <figcaption>an elephant minding its own business</figcaption>
+            <img src="site/images/journal/elephant.webp" alt="An elephant silhouetted on open plains under a red sunset in the Linyanti" width="1600" height="1200" loading="lazy">
+            <figcaption>an elephant in the Linyanti (Okavango)</figcaption>
           </figure>
           <figure class="polaroid">
             <img src="site/images/journal/two-bikes.webp" alt="Two loaded adventure motorcycles parked on the gravel shoulder of a long open road" width="1600" height="900" loading="lazy">
-            <figcaption>two bikes, one very long road</figcaption>
+            <figcaption>a trip with my dad: 3,000 km of dirt roads</figcaption>
           </figure>
           <figure class="polaroid">
-            <img src="site/images/journal/raptors.webp" alt="Several birds of prey sitting on wooden perches on a lawn" width="1280" height="720" loading="lazy">
-            <figcaption>the raptor crew, taking perching very seriously</figcaption>
+            <img src="site/images/journal/raptors.webp" alt="Young lanner falcons sitting on perches on a lawn" width="1280" height="720" loading="lazy">
+            <figcaption>juvenile lanners hanging out on the lawn</figcaption>
           </figure>
           <figure class="polaroid">
-            <img src="site/images/journal/dog-grass.webp" alt="A small white dog in tall golden grass next to a parked car, with the photographer's shadow in front" width="1600" height="1200" loading="lazy">
-            <figcaption>the dog found the good grass (that's my shadow)</figcaption>
+            <img src="site/images/journal/dog-grass.webp" alt="A pointer pup in tall golden grass next to a parked car, with the photographer&#39;s shadow in front" width="1600" height="1200" loading="lazy">
+            <figcaption>the pointer pup in the Cradle of Humankind</figcaption>
           </figure>
           <figure class="polaroid">
             <img src="site/images/journal/waterfall.webp" alt="A huge waterfall dropping into a gorge, with spray rising" width="1600" height="1200" loading="lazy">
@@ -357,15 +346,15 @@
           </figure>
           <figure class="polaroid">
             <img src="site/images/journal/dirtbike.webp" alt="A dirt bike parked on a grassy hilltop above a lake under heavy clouds" width="1600" height="1200" loading="lazy">
-            <figcaption>dirt bike taking a breather</figcaption>
+            <figcaption>the good ol' days</figcaption>
           </figure>
           <figure class="polaroid">
-            <img src="site/images/journal/camp.webp" alt="A blue dome tent and a small kettle barbecue on a grassy campsite" width="1600" height="1200" loading="lazy">
-            <figcaption>home for the night</figcaption>
+            <img src="site/images/journal/camp.webp" alt="A blue dome tent and a small kettle barbecue on a grassy campsite in Waterval Boven" width="1600" height="1200" loading="lazy">
+            <figcaption>camping in Waterval Boven</figcaption>
           </figure>
           <figure class="polaroid">
-            <img src="site/images/journal/yellow-field.webp" alt="A green field covered in small yellow flowers under a blue sky" width="1600" height="1200" loading="lazy">
-            <figcaption>a field of yellow, for no reason</figcaption>
+            <img src="site/images/journal/yellow-field.webp" alt="A green field covered in small yellow flowers under a blue sky, near Bologna" width="1600" height="1200" loading="lazy">
+            <figcaption>a field of yellow in Bologna</figcaption>
           </figure>
         </div>
       </div>
@@ -375,7 +364,6 @@
       <div class="wrap">
         <div class="block-head">
           <h2>Science-y stuff</h2>
-          <span class="hand">the nerdy bit</span>
         </div>
 
         <article class="entry">
@@ -460,8 +448,8 @@
 
         <div class="about">
           <div class="about-text">
-            <p>I like digging into messy datasets and trying to build models that actually tell us something. I’m still learning a lot. Some days it’s fun, some days I want to throw the computer.</p>
-            <p>When I’m not doing that I’m fishing, birding, riding motorcycles or sleeping in a tent somewhere. I studied genomics in Bologna and bioinformatics in Amsterdam, and these days I’m in Bassano del Grappa.</p>
+            <p>I like working with data and building models that actually tell us something. I’m still learning a lot. Some days it’s fun, some days I want to throw the computer.</p>
+            <p>When I’m not doing that I’m fishing, birding, riding motorcycles or sleeping in a tent somewhere, or at least wanting to. I studied genomics in Bologna and bioinformatics in Amsterdam, and right now I’m in Utrecht in the Netherlands.</p>
             <ul class="likes" aria-label="Things I like">
               <li>birds</li>
               <li>fishing</li>
@@ -491,9 +479,9 @@
         <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/gabriel-haw" target="_blank" rel="noopener">LinkedIn</a>
         <a href="now.html">What I'm up to now</a>
+        <a href="notes.html">Interview notes</a>
       </div>
       <div class="foot-small">
-        <span>© 2026 Gabriel Haw</span>
         <span>Last updated October 2026</span>
       </div>
     </div>

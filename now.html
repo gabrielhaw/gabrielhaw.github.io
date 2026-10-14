@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600..800&family=Onest:wght@400..600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Onest:wght@400..600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site/style.css">
 
   <style>
@@ -28,9 +28,9 @@
     }
 
     .now-head h1 {
-      font-size: clamp(3.25rem, 12vw, 9rem);
-      line-height: 0.9;
-      letter-spacing: -0.04em;
+      font-size: clamp(3.25rem, 11vw, 8.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
     }
 
     .now-head .lede {
@@ -61,7 +61,7 @@
     .item > * { min-width: 0; }
 
     .item h2 {
-      font-size: clamp(1.7rem, 7.2vw, 3.75rem);
+      font-size: clamp(2rem, 6vw, 3.4rem);
       margin-bottom: 1rem;
     }
 
@@ -83,8 +83,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: var(--display);
-      font-weight: 700;
+      font-weight: 600;
       background: var(--ink);
       color: var(--paper);
       text-decoration: none;
@@ -122,8 +121,7 @@
     .back {
       display: inline-block;
       margin-top: 3rem;
-      font-family: var(--display);
-      font-weight: 700;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -137,6 +135,7 @@
         <a href="index.html#photos">photos</a>
         <a href="index.html#work">work</a>
         <a href="index.html#about">me</a>
+        <a href="notes.html">notes</a>
         <a href="now.html" class="now-link" aria-current="page">now</a>
       </div>
     </div>
@@ -164,7 +163,7 @@
             <li>Plan food trips</li>
             <li>See on a map where your friends have eaten</li>
           </ul>
-          <p>I’m building it with React, Vite and MapLibre on the front, and Supabase underneath. I’m learning a lot (some days it’s fun, some days it’s the computer-throwing thing again).</p>
+          <p>Full disclosure: it’s being vibe coded. My friend Fraser and I needed something to do in our spare time, so we started building it. It runs on React, Vite and MapLibre, with Supabase underneath.</p>
           <a class="btn" href="https://foodhub-liart-phi.vercel.app" target="_blank" rel="noopener">Take a look at bytli →</a>
         </div>
         <figure class="polaroid">
@@ -179,7 +178,8 @@
           <h2 id="jobs-title">Spamming job applications</h2>
           <p>Machine learning, data science, bioinformatics, anything where I get to poke at interesting data. I’m applying to a lot of them.</p>
           <p class="tally">sent: lots. heard back: fewer.</p>
-          <p>If you’re hiring, or know someone who is, I’d love to hear from you: <a href="mailto:gabrielvascohaw@gmail.com">gabrielvascohaw@gmail.com</a>.</p>
+          <p>I’ve started writing down the questions I get asked in interviews, and what I’d say now.</p>
+          <a class="btn" href="notes.html">Read my interview notes →</a>
         </div>
         <div class="scribble">
           <p>current hobby: refreshing my inbox and pretending I’m not refreshing my inbox</p>
@@ -190,12 +190,13 @@
         <div>
           <p class="item-num">three</p>
           <h2 id="run-title">Running from responsibilities</h2>
-          <p>Literally. I’ve been running a lot, mostly so I don’t have to think about the job applications for an hour. When I’m not running I’m on a bike, out birding, or fishing.</p>
-          <a class="back" href="index.html#photos">See where I end up →</a>
+          <p>I used to be out riding bikes and fishing. Now I’m sitting in flat, rainy Utrecht, and running is my escape, mostly so I don’t have to think about job applications for an hour.</p>
+          <p>The adventures are on hold for a bit while I find work.</p>
+          <a class="back" href="index.html#photos">Places I used to go →</a>
         </div>
         <figure class="polaroid">
-          <img src="site/images/journal/yellow-field.webp" alt="A green field covered in small yellow flowers under a blue sky" width="1600" height="1200" loading="lazy">
-          <figcaption>a good place to not check emails</figcaption>
+          <img src="site/images/journal/dirtbike.webp" alt="A dirt bike parked on a grassy hilltop above a lake under heavy clouds" width="1600" height="1200" loading="lazy">
+          <figcaption>the good ol' days</figcaption>
         </figure>
       </section>
 
@@ -211,9 +212,9 @@
         <a href="index.html">Back home</a>
         <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/gabriel-haw" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="notes.html">Interview notes</a>
       </div>
       <div class="foot-small">
-        <span>© 2026 Gabriel Haw</span>
         <span>Last updated October 2026</span>
       </div>
     </div>
