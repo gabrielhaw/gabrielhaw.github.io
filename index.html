@@ -32,7 +32,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.8s ease;
     }
+
+    .hero video.on { opacity: 1; }
 
     .hero::after {
       content: "";
@@ -275,10 +279,7 @@
   </nav>
 
   <header class="hero" id="top">
-    <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="site/video/hero-poster.jpg" aria-hidden="true">
-      <source src="site/video/hero.mp4" type="video/mp4">
-      <source src="site/video/hero.webm" type="video/webm">
-    </video>
+    <video id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
 
     <div class="wrap rise">
       <p class="hero-hi">hi, I'm</p>
@@ -490,19 +491,32 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 
-    // Some browsers ignore the autoplay attribute; nudge it, and if it still
-    // refuses (e.g. iOS low power mode) the poster stays as the background.
+    // Hero video: small file on phones, skip it on data saver, and only fade
+    // it in once it is actually playing. Until then the poster image (the
+    // hero background) shows, so there is never a black box.
     (function () {
       var video = document.getElementById('heroVideo');
       if (!video) return;
+      var conn = navigator.connection || {};
+      if (conn.saveData || /(^|-)2g$/.test(conn.effectiveType || '')) return;
+
+      var small = Math.min(window.screen.width, window.innerWidth) <= 768;
       video.muted = true;
+      video.defaultMuted = true;
+      video.setAttribute('muted', '');
+      video.autoplay = true;
+      video.preload = 'auto';
+      video.src = small ? 'site/video/hero-small.mp4' : 'site/video/hero.mp4';
+
       function tryPlay() {
         var p = video.play();
         if (p && p.catch) p.catch(function () {});
       }
-      if (video.readyState >= 2) tryPlay();
-      else video.addEventListener('loadeddata', tryPlay, { once: true });
-      // first tap or click anywhere also starts it
+      video.addEventListener('playing', function () { video.classList.add('on'); });
+      video.addEventListener('canplay', tryPlay, { once: true });
+      tryPlay();
+
+      // iOS low power mode blocks autoplay; the first tap starts it instead
       ['touchstart', 'click'].forEach(function (evt) {
         window.addEventListener(evt, function () { if (video.paused) tryPlay(); }, { once: true, passive: true });
       });
