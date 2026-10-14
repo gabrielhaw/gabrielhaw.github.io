@@ -106,7 +106,7 @@ p { text-wrap: pretty; }
 
 .nav .wrap {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding-top: 0.9rem;
   padding-bottom: 0.9rem;
