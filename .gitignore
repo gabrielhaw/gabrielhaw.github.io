@@ -3,3 +3,12 @@ node_modules/
 .env
 *.log
 venv/
+
+# local AI tooling, not part of the site
+.agents/
+.claude/
+agent/
+skills-lock.json
+
+# full-size photo originals (web versions live in site/images/journal/)
+photos/

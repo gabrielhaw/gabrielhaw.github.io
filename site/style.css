@@ -1,0 +1,296 @@
+/* Shared styles for index.html and now.html */
+
+:root {
+  --paper: #edf0f2;
+  --card: #fdfdfc;
+  --ink: #141413;
+  --muted: #4f555b;
+  --line: #cfd5da;
+  --tomato: #e8462a;
+  --tomato-ink: #c2341b;
+  --highlight: #ffe36e;
+  --night: #0f0f0e;
+
+  --display: 'Syne', 'Helvetica Neue', sans-serif;
+  --text: 'Onest', -apple-system, BlinkMacSystemFont, sans-serif;
+  --hand: 'Caveat', 'Comic Sans MS', cursive;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--line) var(--paper);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--text);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--highlight); color: var(--ink); }
+
+img, video { max-width: 100%; display: block; }
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--tomato);
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover { color: var(--tomato-ink); }
+
+a:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--tomato);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p { text-wrap: pretty; }
+
+.wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 720px) {
+  .wrap { padding: 0 2.5rem; }
+}
+
+/* highlighter swipe behind a word */
+.mark {
+  background: linear-gradient(transparent 55%, var(--highlight) 55%, var(--highlight) 92%, transparent 92%);
+  padding: 0 0.1em;
+}
+
+.hand {
+  font-family: var(--hand);
+  font-weight: 600;
+}
+
+/* ---------- nav ---------- */
+
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav.solid {
+  background: rgba(237, 240, 242, 0.94);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  box-shadow: 0 1px 0 var(--line);
+}
+
+.nav .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+}
+
+.nav-name {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (min-width: 720px) {
+  .nav-links { gap: 1.75rem; }
+}
+
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: inherit; text-decoration: underline; text-decoration-color: var(--tomato); }
+
+.nav-links .now-link {
+  background: var(--tomato-ink);
+  color: #fff;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+}
+
+.nav-links .now-link:hover { text-decoration: none; background: var(--ink); }
+
+/* ---------- marquee ---------- */
+
+.ticker {
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 0.85rem 0;
+}
+
+.ticker-track {
+  display: inline-flex;
+  animation: ticker 38s linear infinite;
+}
+
+.ticker-track span { padding: 0 1.1rem; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-track span:nth-child(odd) { color: var(--highlight); }
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- sections ---------- */
+
+.block {
+  padding: 6rem 0 1rem;
+  scroll-margin-top: 3rem;
+}
+
+.block-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.block-head h2 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+}
+
+.block-head .hand {
+  font-size: 1.6rem;
+  color: var(--tomato-ink);
+  transform: rotate(-3deg);
+}
+
+/* ---------- polaroids ---------- */
+
+.polaroid {
+  position: relative;
+  margin: 0;
+  background: var(--card);
+  padding: 0.7rem 0.7rem 0.4rem;
+  box-shadow: 0 1px 2px rgba(40, 32, 20, 0.12), 0 12px 28px -14px rgba(40, 32, 20, 0.45);
+  transform: rotate(var(--tilt, -1.5deg));
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.02);
+  box-shadow: 0 2px 4px rgba(40, 32, 20, 0.12), 0 22px 40px -16px rgba(40, 32, 20, 0.5);
+  z-index: 2;
+}
+
+/* a strip of tape */
+.polaroid::before {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.4rem;
+  transform: translateX(-50%) rotate(var(--tape, 2deg));
+  background: rgba(255, 227, 110, 0.72);
+  box-shadow: 0 1px 2px rgba(40, 32, 20, 0.08);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  background: var(--line);
+}
+
+.polaroid figcaption {
+  font-family: var(--hand);
+  font-size: 1.45rem;
+  line-height: 1.15;
+  padding: 0.5rem 0.2rem 0.3rem;
+  color: #2a2926;
+}
+
+/* ---------- footer ---------- */
+
+.foot {
+  background: var(--ink);
+  color: var(--paper);
+  margin-top: 6rem;
+  padding: 5rem 0 2.5rem;
+}
+
+.foot h2 {
+  font-size: clamp(3rem, 10vw, 7rem);
+}
+
+.foot p { color: rgba(242, 240, 233, 0.75); max-width: 32rem; }
+
+.foot-email {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 4.5vw, 2.5rem);
+  color: var(--highlight);
+  word-break: break-word;
+}
+
+.foot-email:hover { color: #fff; }
+
+.foot-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin-top: 1.5rem;
+  font-weight: 500;
+}
+
+.foot-links a:hover { color: var(--highlight); }
+
+.foot-small {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(242, 240, 233, 0.18);
+  font-size: 0.875rem;
+  color: rgba(242, 240, 233, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ticker-track { animation: none; }
+  .polaroid, .polaroid:hover { transition: none; }
+  .rise > * { animation: none !important; opacity: 1 !important; transform: none !important; }
+}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="What Gabriel Haw is up to right now: building bytli, applying for jobs, and running away from responsibilities.">
+  <title>Now · Gabriel Haw</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600..800&family=Onest:wght@400..600&family=Caveat:wght@500..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site/style.css">
+
+  <style>
+    .nav { color: var(--ink); background: rgba(237, 240, 242, 0.94); box-shadow: 0 1px 0 var(--line); }
+
+    .now-head {
+      padding: 8rem 0 2rem;
+    }
+
+    .now-date {
+      font-family: var(--hand);
+      font-size: 1.75rem;
+      color: var(--tomato-ink);
+      display: inline-block;
+      transform: rotate(-3deg);
+      margin: 0 0 0.5rem;
+    }
+
+    .now-head h1 {
+      font-size: clamp(3.25rem, 12vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+
+    .now-head .lede {
+      font-size: 1.3rem;
+      max-width: 36rem;
+      margin: 1.5rem 0 0;
+    }
+
+    .item {
+      display: grid;
+      gap: 1.5rem 4rem;
+      padding: 3rem 0;
+      border-top: 2px solid var(--ink);
+    }
+
+    @media (min-width: 900px) {
+      .item { grid-template-columns: 1fr 1fr; align-items: start; }
+      .item.flip > :first-child { order: 2; }
+    }
+
+    .item-num {
+      font-family: var(--hand);
+      font-size: 1.5rem;
+      color: var(--tomato-ink);
+      margin: 0 0 0.25rem;
+    }
+
+    .item > * { min-width: 0; }
+
+    .item h2 {
+      font-size: clamp(1.7rem, 7.2vw, 3.75rem);
+      margin-bottom: 1rem;
+    }
+
+    .item p { margin: 0 0 1rem; max-width: 36rem; }
+
+    .item ul {
+      padding-left: 1.1rem;
+      margin: 0 0 1.25rem;
+      max-width: 36rem;
+    }
+
+    .item li { margin-bottom: 0.4rem; }
+    .item li::marker { color: var(--tomato); }
+
+    .item .polaroid { --tilt: 2deg; max-width: 36rem; }
+    .item.flip .polaroid { --tilt: -2deg; --tape: -4deg; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--display);
+      font-weight: 700;
+      background: var(--ink);
+      color: var(--paper);
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 999px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .btn:hover { background: var(--tomato-ink); color: #fff; transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .tally {
+      font-family: var(--hand);
+      font-size: 2rem;
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 0.5rem 0 1rem;
+    }
+
+    .scribble {
+      background: var(--card);
+      padding: 1.75rem;
+      transform: rotate(1.5deg);
+      box-shadow: 0 12px 28px -16px rgba(40, 32, 20, 0.5);
+      max-width: 30rem;
+    }
+
+    .scribble p {
+      font-family: var(--hand);
+      font-size: 1.75rem;
+      line-height: 1.25;
+      margin: 0;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 3rem;
+      font-family: var(--display);
+      font-weight: 700;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a href="index.html" class="nav-name">GH</a>
+      <div class="nav-links">
+        <a href="index.html#photos">photos</a>
+        <a href="index.html#work">work</a>
+        <a href="index.html#about">me</a>
+        <a href="now.html" class="now-link" aria-current="page">now</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="now-head">
+      <div class="wrap">
+        <p class="now-date">October 2026</p>
+        <h1>What I’m up to now</h1>
+        <p class="lede">A <span class="mark">now page</span>: what’s actually taking up my days at the moment. I’ll update it when life changes.</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+
+      <section class="item" aria-labelledby="bytli-title">
+        <div>
+          <p class="item-num">one</p>
+          <h2 id="bytli-title">Building bytli</h2>
+          <p><strong>bytli</strong> is a social food journal. The idea is simple: <span class="mark">where your friends actually eat</span>, not where an algorithm thinks you should.</p>
+          <ul>
+            <li>Log the places you eat</li>
+            <li>Tag the friends you went with</li>
+            <li>Plan food trips</li>
+            <li>See on a map where your friends have eaten</li>
+          </ul>
+          <p>I’m building it with React, Vite and MapLibre on the front, and Supabase underneath. I’m learning a lot (some days it’s fun, some days it’s the computer-throwing thing again).</p>
+          <a class="btn" href="https://foodhub-liart-phi.vercel.app" target="_blank" rel="noopener">Take a look at bytli →</a>
+        </div>
+        <figure class="polaroid">
+          <img src="site/images/journal/bytli.webp" alt="The bytli homepage: 'where your friends actually eat', with a phone showing a map of friends' food spots" width="1100" height="653">
+          <figcaption>the homepage, very proud of this one</figcaption>
+        </figure>
+      </section>
+
+      <section class="item flip" aria-labelledby="jobs-title">
+        <div>
+          <p class="item-num">two</p>
+          <h2 id="jobs-title">Spamming job applications</h2>
+          <p>Machine learning, data science, bioinformatics, anything where I get to poke at interesting data. I’m applying to a lot of them.</p>
+          <p class="tally">sent: lots. heard back: fewer.</p>
+          <p>If you’re hiring, or know someone who is, I’d love to hear from you: <a href="mailto:gabrielvascohaw@gmail.com">gabrielvascohaw@gmail.com</a>.</p>
+        </div>
+        <div class="scribble">
+          <p>current hobby: refreshing my inbox and pretending I’m not refreshing my inbox</p>
+        </div>
+      </section>
+
+      <section class="item" aria-labelledby="run-title">
+        <div>
+          <p class="item-num">three</p>
+          <h2 id="run-title">Running from responsibilities</h2>
+          <p>Literally. I’ve been running a lot, mostly so I don’t have to think about the job applications for an hour. When I’m not running I’m on a bike, out birding, or fishing.</p>
+          <a class="back" href="index.html#photos">See where I end up →</a>
+        </div>
+        <figure class="polaroid">
+          <img src="site/images/journal/yellow-field.webp" alt="A green field covered in small yellow flowers under a blue sky" width="1600" height="1200" loading="lazy">
+          <figcaption>a good place to not check emails</figcaption>
+        </figure>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <h2>Say hi</h2>
+      <p>About bytli, birds, science, bikes, or a job. All good.</p>
+      <a class="foot-email" href="mailto:gabrielvascohaw@gmail.com">gabrielvascohaw@gmail.com</a>
+      <div class="foot-links">
+        <a href="index.html">Back home</a>
+        <a href="https://github.com/gabrielhaw" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/gabriel-haw" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      <div class="foot-small">
+        <span>© 2026 Gabriel Haw</span>
+        <span>Last updated October 2026</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
